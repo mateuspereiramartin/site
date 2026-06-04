@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pesquisa | Prof. Dr. Mateus P. Martin</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: { primary: '#1e3a8a', secondary: '#f97316', secondaryHover: '#ea580c' }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-white text-slate-800 antialiased flex flex-col min-h-screen">
+    <!-- Navegação -->
+    <nav class="fixed w-full bg-white/95 backdrop-blur-sm border-b border-slate-200 z-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <a href="index.html" class="font-semibold text-lg text-primary tracking-tight hover:text-secondary transition">
+                    Prof. Dr. Mateus Pereira Martin
+                </a>
+                <div class="hidden md:flex space-x-8 text-sm font-medium">
+                    <a href="index.html" class="text-slate-600 hover:text-secondary transition">Início</a>
+                    <a href="ensino.html" class="text-slate-600 hover:text-secondary transition">Ensino</a>
+                    <a href="pesquisa.html" class="text-secondary transition border-b-2 border-secondary pb-1">Pesquisa</a>
+                    <a href="extensao.html" class="text-slate-600 hover:text-secondary transition">Extensão</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-grow pt-28 pb-20 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+        <div class="mb-12 border-b border-slate-200 pb-8">
+            <h1 class="text-3xl font-bold text-primary mb-4">Pesquisa Científica</h1>
+            <p class="text-slate-600 font-light max-w-3xl leading-relaxed">
+                Minha atuação em pesquisa concentra-se no desenvolvimento de formulações matemáticas exatas e algoritmos eficientes para problemas fundamentais de Pesquisa Operacional, visando preencher lacunas da literatura com abordagens para extensões de caráter prático e industrial.
+            </p>
+        </div>
+
+        <!-- Projetos de Pesquisa -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-semibold text-slate-800 mb-6 flex items-center">
+                <span class="w-1.5 h-6 bg-secondary mr-3 inline-block"></span>
+                Projetos Financiados Ativos
+            </h2>
+            <div class="space-y-6">
+                <div class="bg-slate-50 border border-slate-200 p-6 rounded">
+                    <div class="flex items-center justify-between mb-2">
+                        <h3 class="font-medium text-primary text-lg">Projeto Temático FAPESP</h3>
+                        <span class="text-xs font-bold text-slate-500 uppercase tracking-wider bg-slate-200 px-2 py-1 rounded">Pesquisador Integrante</span>
+                    </div>
+                    <p class="text-sm text-slate-800 font-medium mb-2">Problemas de corte, empacotamento, dimensionamento de lotes, programação da produção, roteamento e localização e suas integrações em contextos industriais e logísticos</p>
+                    <p class="text-sm text-slate-600 font-light leading-relaxed">Estudo aprofundado e desenvolvimento de modelos matemáticos e algoritmos para resolver problemas integrados de planejamento, visando cooperação entre o setor produtivo e a academia e o desenvolvimento de ferramentas computacionais práticas.</p>
+                </div>
+                
+                <div class="bg-slate-50 border border-slate-200 p-6 rounded">
+                    <div class="flex items-center justify-between mb-2">
+                        <h3 class="font-medium text-primary text-lg">Projeto CNPq (Grupos Consolidados)</h3>
+                        <span class="text-xs font-bold text-slate-500 uppercase tracking-wider bg-slate-200 px-2 py-1 rounded">Pesquisador Integrante</span>
+                    </div>
+                    <p class="text-sm text-slate-800 font-medium mb-2">Métodos Inteligentes de Otimização para Problemas de Escalonamento e Roteamento</p>
+                    <p class="text-sm text-slate-600 font-light leading-relaxed">Focado na resolução de problemas de escalonamento e roteamento de veículos com restrições reais (prioridade, janelas de tempo, incerteza). O projeto combina métodos de otimização exata e meta-heurísticas com Inteligência Artificial e Aprendizado de Máquina para suporte robusto à decisão em logística e assistência médico-hospitalar.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Publicações Recentes -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-semibold text-slate-800 mb-6 flex items-center">
+                <span class="w-1.5 h-6 bg-secondary mr-3 inline-block"></span>
+                Publicações Selecionadas (Periódicos de Alto Impacto)
+            </h2>
+            <ul class="space-y-4">
+                <li class="border-l-4 border-slate-300 pl-4 py-1">
+                    <p class="text-sm text-slate-800 font-medium">Comparative analysis of mathematical formulations for the two-dimensional guillotine cutting problem</p>
+                    <p class="text-xs text-slate-500 mt-1">Becker, H.; Martin, M.; Araujo, O.; Buriol, L. S.; Morabito, R. <span class="italic">International Transactions in Operational Research</span>, v. 31, 2024.</p>
+                </li>
+                <li class="border-l-4 border-slate-300 pl-4 py-1">
+                    <p class="text-sm text-slate-800 font-medium">Models for two-dimensional bin packing problems with customer order spread</p>
+                    <p class="text-xs text-slate-500 mt-1">Martin, M.; Yanasse, H. H.; Santos, M. O.; Morabito, R. <span class="italic">Journal of Combinatorial Optimization</span>, v. 48, 2024.</p>
+                </li>
+                <li class="border-l-4 border-slate-300 pl-4 py-1">
+                    <p class="text-sm text-slate-800 font-medium">Solving the three-dimensional open-dimension rectangular packing problem: A constraint programming model</p>
+                    <p class="text-xs text-slate-500 mt-1">Martin, M.; Queiroz, T. A.; Morabito, R. <span class="italic">Computers & Operations Research</span>, v. 167, 2024.</p>
+                </li>
+                <li class="border-l-4 border-slate-300 pl-4 py-1">
+                    <p class="text-sm text-slate-800 font-medium">Models for two- and three-stage two-dimensional cutting stock problems with a limited number of open stacks</p>
+                    <p class="text-xs text-slate-500 mt-1">Martin, M.; Yanasse, H. H.; Santos, M. O.; Morabito, R. <span class="italic">International Journal of Production Research</span>, v. 61, 2023.</p>
+                </li>
+                <li class="border-l-4 border-slate-300 pl-4 py-1">
+                    <p class="text-sm text-slate-800 font-medium">A top-down cutting approach for modeling the constrained two- and three-dimensional guillotine cutting problems</p>
+                    <p class="text-xs text-slate-500 mt-1">Martin, M.; Morabito, R.; Munari, P. <span class="italic">Journal of the Operational Research Society</span>, v. 72, 2021.</p>
+                </li>
+            </ul>
+        </section>
+
+        <!-- Chamada para Alunos -->
+        <section class="bg-primary text-white rounded p-8 mt-12 flex flex-col md:flex-row items-center justify-between">
+            <div class="md:w-2/3 mb-6 md:mb-0">
+                <h3 class="text-xl font-semibold mb-2">Atração de Talentos (IC, Mestrado e Doutorado)</h3>
+                <p class="text-blue-100 text-sm font-light leading-relaxed">
+                    Estudantes de graduação e pós-graduação em engenharia e ciências exatas motivados a trabalhar na fronteira entre Otimização Matemática e IA são bem-vindos. O grupo de pesquisa oferece forte fundamentação teórica e aplicabilidade industrial, formando pesquisadores de excelência.
+                </p>
+            </div>
+            <div>
+                <a href="mailto:mpmartin@ufscar.br" class="inline-block bg-secondary text-white font-medium py-2 px-6 rounded hover:bg-secondaryHover transition shadow-sm">
+                    Entre em Contato
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-slate-50 border-t border-slate-200 py-8 mt-auto">
+        <div class="max-w-6xl mx-auto px-4 text-center sm:flex sm:justify-between sm:text-left text-slate-500 text-sm">
+            <p>Prof. Dr. Mateus Pereira Martin. UFSCar - Sorocaba, SP.</p>
+            <div class="mt-4 sm:mt-0 flex justify-center gap-4">
+                <a href="mailto:mpmartin@ufscar.br" class="hover:text-primary transition">mpmartin-@-ufscar-.-br (sem hífens)</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
