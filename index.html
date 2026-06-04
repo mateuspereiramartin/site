@@ -30,9 +30,24 @@
                     <a href="ensino.html" class="text-slate-600 hover:text-secondary transition">Ensino</a>
                     <a href="pesquisa.html" class="text-slate-600 hover:text-secondary transition">Pesquisa</a>
                     <a href="extensao.html" class="text-slate-600 hover:text-secondary transition">Extensão</a>
-                </div>
+                
+                <!-- Mobile menu button -->
+                <button id="menu-btn" class="md:hidden flex flex-col justify-center items-center w-10 h-10 rounded focus:outline-none" aria-label="Abrir menu" onclick="toggleMenu()">
+                    <span id="bar1" class="block w-6 h-0.5 bg-slate-700 transition-all duration-300"></span>
+                    <span id="bar2" class="block w-6 h-0.5 bg-slate-700 mt-1.5 transition-all duration-300"></span>
+                    <span id="bar3" class="block w-6 h-0.5 bg-slate-700 mt-1.5 transition-all duration-300"></span>
+                </button>
             </div>
         </div>
+            <!-- Mobile menu -->
+            <div id="mobile-menu" class="hidden md:hidden border-t border-slate-200 bg-white/95">
+                <div class="px-4 py-3 space-y-1">
+                                        <a href="index.html" class="block px-3 py-2 rounded text-secondary transition">Início</a>
+                    <a href="ensino.html" class="block px-3 py-2 rounded text-slate-600 hover:text-secondary transition">Ensino</a>
+                    <a href="pesquisa.html" class="block px-3 py-2 rounded text-slate-600 hover:text-secondary transition">Pesquisa</a>
+                    <a href="extensao.html" class="block px-3 py-2 rounded text-slate-600 hover:text-secondary transition">Extensão</a>
+                </div>
+            </div>
     </nav>
 
     <main class="flex-grow pt-28 pb-20 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
@@ -49,7 +64,7 @@
                     <a href="https://www.ccgt.ufscar.br/pt-br" target="_blank" class="text-primary hover:text-secondary font-medium transition">Centro de Ciências em Gestão e Tecnologia (CCGT)</a>, da 
                     <a href="https://www.ufscar.br/" target="_blank" class="text-primary hover:text-secondary font-medium transition">Universidade Federal de São Carlos (UFSCar)</a>, Campus Sorocaba.<br> <br> 
                     Docente credenciado no 
-                    <a href="https://www.ppgeps.ufscar.br/pt-br" target="_blank" class="text-primary hover:text-secondary font-medium transition">Programa de Pós-graduação em Engenharia de Produção (PPGEP)</a> do CCGT/UFSCar.
+                    <a href="https://www.ppgeps.ufscar.br/pt-br/" target="_blank" class="text-primary hover:text-secondary font-medium transition">Programa de Pós-graduação em Engenharia de Produção (PPGEP)</a> do CCGT/UFSCar.
                 </p>
                 
                 <div class="mt-8 flex flex-wrap gap-3">
@@ -73,7 +88,7 @@
 
             <!-- Coluna da Imagem (Sua foto) -->
             <div class="w-48 md:w-56 lg:w-64 flex-shrink-0 mx-auto md:mx-0 mb-6 md:mb-0">
-                <img src="mateus.png" alt="Prof. Dr. Mateus P. Martin" class="w-full h-auto rounded-xl shadow-md border border-slate-200 object-cover">
+                <img src="figuras/mateus1.jpg" alt="Prof. Dr. Mateus P. Martin" class="w-full h-auto rounded-xl shadow-md border border-slate-200 object-cover">
             </div>
 
         </div>
@@ -89,10 +104,10 @@
 					Minha formação acadêmica é alicerçada na integração entre a Engenharia de Produção e os métodos quantitativos aplicados a sistemas produtivos.
 				</p>
 				<p>
-					Sou bacharel em Engenharia de Produção pela FCA/UNICAMP (2013), período em que realizei intercâmbio acadêmico na Universitat Politècnica de València (Espanha). Concluí o mestrado em Engenharia Elétrica pela FEEC/UNICAMP (2016) e o doutorado em Engenharia de Produção pelo PPGEP/UFSCar (2019), com período de doutorado-sanduíche na Faculdade de Engenharia da Universidade do Porto (Portugal).
+					Sou bacharel em Engenharia de Produção pela FCA/UNICAMP (2013), período em que realizei intercâmbio acadêmico na <a href="https://www.upv.es/" target="_blank" class="text-primary hover:text-secondary font-medium transition">Universitat Politècnica de València (Espanha)</a>. Concluí o mestrado em Engenharia Elétrica pela FEEC/UNICAMP (2016) e o doutorado em Engenharia de Produção pelo PPGEP/UFSCar (2019), com período de doutorado-sanduíche na <a href="https://www.up.pt/feup/pt/" target="_blank" class="text-primary hover:text-secondary font-medium transition">Faculdade de Engenharia da Universidade do Porto (Portugal)</a>.
 				</p>
 				<p>
-					Realizei estágio de pós-doutorado no Programa de Pós-Graduação em Pesquisa Operacional (PPGPO) da UNIFESP/ITA (2020–2021). Atuei como docente da Universidade Federal Fluminense (UFF), vinculado ao Departamento de Engenharia de Produção do Campus Petrópolis entre 2021 e 2024, e como docente do Programa de Pós-Graduação em Engenharia de Produção (PPGEP) da Escola de Engenharia Industrial Metalúrgica
+					Realizei estágio de pós-doutorado no Programa de Pós-Graduação em Pesquisa Operacional (PPGPO) da UNIFESP/ITA (2020–2021). Atuei como docente da Universidade Federal Fluminense (UFF), vinculado ao Departamento de Engenharia de Produção do Campus Petrópolis entre 2021 e 2024, e como docente do <a href="http://ppgep.uff.br/" target="_blank" class="text-primary hover:text-secondary font-medium transition">Programa de Pós-Graduação em Engenharia de Produção (mestrado profissional)</a> da Escola de Engenharia Industrial Metalúrgica
 					de Volta Redonda entre 2023 e 2026.
 				</p>
             </div>
@@ -124,7 +139,7 @@
 				<div class="bg-slate-50 p-6 border border-slate-200 rounded">
 					<h3 class="font-medium text-primary mb-2">Inteligência Artificial</h3>
 					<p class="text-sm text-slate-600 font-light">
-						Integração entre Pesquisa Operacional e Aprendizado de Máquina por meio do desenvolvimento de abordagens híbridas para apoio à tomada de decisão. Busca-se combinar a capacidade preditiva do Aprendizado de Máquina ao rigor prescritivo da Pesquisa Operacional em aplicações voltadas a sistemas produtivos e logísticos.
+						Integração entre Pesquisa Operacional e Aprendizado de Máquina por meio do desenvolvimento de abordagens híbridas para apoio à tomada de decisão. Busca-se combinar a capacidade preditiva do Aprendizado de Máquina ao rigor prescritivo da Pesquisa Operacional em aplicações voltadas à gestão de operações em sistemas produtivos e logísticos.
 					</p>
 				</div>
 		
@@ -146,13 +161,38 @@
         </section>
     </main>
 
-    <footer class="bg-slate-50 border-t border-slate-200 py-8 mt-auto">
-        <div class="max-w-6xl mx-auto px-4 text-center sm:flex sm:justify-between sm:text-left text-slate-500 text-sm">
-            <p>Prof. Dr. Mateus Pereira Martin. UFSCar - Sorocaba, SP.</p>
-            <div class="mt-4 sm:mt-0 flex justify-center gap-4">
-                <a href="mailto:mpmartin@ufscar.br" class="hover:text-primary transition">mpmartin-@-ufscar-.-br (sem hífens)</a>
-            </div>
-        </div>
-    </footer>
+	<footer class="bg-slate-50 border-t border-slate-200 py-8">
+		<div class="max-w-6xl mx-auto px-4 text-center flex flex-col items-center">
+			<div class="flex gap-8 mb-6 items-center">
+				<a href="https://www.ufscar.br" target="_blank" class="hover:opacity-80 transition">
+					<img src="figuras/logoUFSCar.png" alt="Logo UFSCar" class="h-16 w-auto">
+				</a>
+				<a href="https://www.ccgt.ufscar.br/pt-br" target="_blank" class="hover:opacity-80 transition">
+					<img src="figuras/logoCCGT.png" alt="Logo UFSCar" class="h-16 w-auto">
+				</a>
+				<a href="https://www.ppgeps.ufscar.br" target="_blank" class="hover:opacity-80 transition">
+					<img src="figuras/logoPPGEPS.png" alt="Logo PPGEPS" class="h-16 w-auto">
+				</a>
+				<!-- <img src="figuras/logoLOGOS.png" alt="Logo LOGOS" class="h-16 w-auto"> -->
+			</div>
+			
+			<div class="mt-4 mb-4 flex flex-col md:flex-row justify-center gap-2 text-sm text-slate-700">
+				<p class="font-medium">Prof. Dr. Mateus Pereira Martin. UFSCar - Sorocaba, SP.</p>
+				<a href="mailto:mpmartin@ufscar.br" class="text-primary hover:underline transition">Contato: mpmartin@ufscar.br</a>
+			</div>
+			
+			<p class="text-slate-500 text-xs font-light max-w-2xl px-4">
+				Este é um site de caráter acadêmico e pessoal. As informações aqui contidas são de responsabilidade do autor e não representam o posicionamento oficial da Universidade Federal de São Carlos (UFSCar).
+			</p>
+		</div>
+	</footer>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const btn = document.getElementById('menu-btn');
+            menu.classList.toggle('hidden');
+        }
+    </script>
 </body>
 </html>
