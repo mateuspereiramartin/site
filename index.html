@@ -1,223 +1,74 @@
 <!DOCTYPE html>
-<html lang="pt-BR" class="scroll-smooth">
+<html lang="pt-BR">
 <head>
-	<!-- Google tag (gtag.js) -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=G-FX92F528BC"></script>
-	<script>
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
-	
-	gtag('config', 'G-FX92F528BC');
-	</script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Início | Prof. Dr. Mateus P. Martin</title>
-
-	<meta property="og:title" content="Prof. Dr. Mateus P. Martin | Pesquisa Operacional">
-	<meta property="og:description" content="Apoio à tomada de decisão e otimização de processos logísticos e industriais. Soluções via Pesquisa Operacional e Inteligência Artificial.">
-	<meta property="og:image" content="https://mateuspereiramartin.github.io/site/figuras/mateus1.png">
-	<meta property="og:url" content="https://mateuspereiramartin.github.io/site/?v=1">
-	<link rel="icon" type="image/png" href="caminho/para/seu/favicon.png"> 
-
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: { sans: ['Inter', 'sans-serif'] },
-                    colors: { primary: '#1e3a8a', secondary: '#f97316', secondaryHover: '#ea580c' }
-                }
-            }
-        }
-    </script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Mateus Pereira Martin</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Mateus Pereira Martin, professor de Engenharia de Produção na UFSCar Sorocaba. Pesquisa Operacional aplicada à produção e à logística.">
+<link rel="canonical" href="https://mateuspereiramartin.github.io/site/index.html">
+<link rel="alternate" hreflang="pt-BR" href="https://mateuspereiramartin.github.io/site/index.html">
+<link rel="alternate" hreflang="en" href="https://mateuspereiramartin.github.io/site/en/index.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Mateus Pereira Martin">
+<meta property="og:description" content="Mateus Pereira Martin, professor de Engenharia de Produção na UFSCar Sorocaba. Pesquisa Operacional aplicada à produção e à logística.">
+<meta property="og:image" content="https://mateuspereiramartin.github.io/site/figuras/mateus.jpg">
+<meta property="og:url" content="https://mateuspereiramartin.github.io/site/index.html">
+<meta property="og:locale" content="pt_BR">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,600&display=swap">
+<link rel="stylesheet" href="assets/site.css">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FX92F528BC"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-FX92F528BC');</script>
 </head>
-<body class="bg-white text-slate-800 antialiased flex flex-col min-h-screen">
-<!-- Navegação -->
-    <nav class="fixed w-full bg-white/95 backdrop-blur-sm border-b border-slate-200 z-50">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-16 items-center">
-                
-                <!-- Logo / Nome -->
-                <a href="index.html" class="font-semibold text-lg text-primary tracking-tight hover:text-secondary transition">
-                    Prof. Dr. Mateus Pereira Martin
-                </a>
-                
-                <!-- Menu Desktop -->
-                <div class="hidden md:flex space-x-8 text-sm font-medium">
-                    <a href="index.html" class="text-secondary transition border-b-2 border-secondary pb-1">Início</a>
-                    <a href="ensino.html" class="text-slate-600 hover:text-secondary transition">Ensino</a>
-                    <a href="pesquisa.html" class="text-slate-600 hover:text-secondary transition">Pesquisa</a>
-                    <a href="extensao.html" class="text-slate-600 hover:text-secondary transition">Extensão</a>
-                </div>
-                
-                <!-- Mobile menu button -->
-                <button id="menu-btn" class="md:hidden flex flex-col justify-center items-center w-10 h-10 rounded focus:outline-none" aria-label="Abrir menu" onclick="toggleMenu()">
-                    <span id="bar1" class="block w-6 h-0.5 bg-slate-700 transition-all duration-300"></span>
-                    <span id="bar2" class="block w-6 h-0.5 bg-slate-700 mt-1.5 transition-all duration-300"></span>
-                    <span id="bar3" class="block w-6 h-0.5 bg-slate-700 mt-1.5 transition-all duration-300"></span>
-                </button>
-
-            </div>
-            
-            <!-- Mobile menu (Dropdown) -->
-            <div id="mobile-menu" class="hidden md:hidden border-t border-slate-200 bg-white/95 pb-2">
-                <div class="px-2 py-3 space-y-1">
-                    <a href="index.html" class="block px-3 py-2 rounded text-secondary font-medium bg-slate-50 transition">Início</a>
-                    <a href="ensino.html" class="block px-3 py-2 rounded text-slate-600 hover:text-secondary hover:bg-slate-50 transition">Ensino</a>
-                    <a href="pesquisa.html" class="block px-3 py-2 rounded text-slate-600 hover:text-secondary hover:bg-slate-50 transition">Pesquisa</a>
-                    <a href="extensao.html" class="block px-3 py-2 rounded text-slate-600 hover:text-secondary hover:bg-slate-50 transition">Extensão</a>
-                </div>
-            </div>
-
-        </div> <!-- Esta div fecha o max-w-6xl mx-auto -->
-    </nav>
-
-    <main class="flex-grow pt-28 pb-20 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
-<!-- Hero Section -->
-        <div class="border-b border-slate-200 pb-12 mb-12 flex flex-col-reverse md:flex-row gap-8 items-center md:items-start justify-between">
-            
-<div class="flex-1 w-full">
-                <h1 class="text-3xl font-bold text-primary mb-4">
-                    Atuação Profissional
-                </h1>
-                <p class="text-slate-600 font-light max-w-4xl leading-relaxed">
-                    Professor Assistente no 
-                    <a href="https://www.depso.ufscar.br/pt-br" target="_blank" class="text-primary hover:text-secondary font-medium transition">Departamento de Engenharia de Produção (DEP-So)</a>, do 
-                    <a href="https://www.ccgt.ufscar.br/pt-br" target="_blank" class="text-primary hover:text-secondary font-medium transition">Centro de Ciências em Gestão e Tecnologia (CCGT)</a>, da 
-                    <a href="https://www.ufscar.br/" target="_blank" class="text-primary hover:text-secondary font-medium transition">Universidade Federal de São Carlos (UFSCar)</a>, Campus Sorocaba.<br> <br> 
-                    Docente credenciado no 
-                    <a href="https://www.ppgeps.ufscar.br/pt-br/" target="_blank" class="text-primary hover:text-secondary font-medium transition">Programa de Pós-graduação em Engenharia de Produção (PPGEP)</a> do CCGT/UFSCar.
-                </p>
-                
-                <div class="mt-8 flex flex-wrap gap-3">
-                    <a href="http://lattes.cnpq.br/9814295914139504" target="_blank" class="text-sm font-medium text-white bg-primary px-5 py-2 rounded hover:bg-blue-900 transition shadow-sm">
-						Currículo Lattes
-                    </a>
-                    <a href="https://orcid.org/0000-0002-6722-7571" target="_blank" class="text-sm font-medium text-primary border border-primary px-5 py-2 rounded hover:bg-slate-50 transition">
-                        ORCID
-                    </a>
-                    <!-- <a href="https://www.webofscience.com/wos/author/record/ADG-9938-2022" target="_blank" class="text-sm font-medium text-primary border border-primary px-5 py-2 rounded hover:bg-slate-50 transition">
-                        ResearcherID
-                    </a> -->
-                    <a href="https://scholar.google.com.br/citations?user=QnhlnG8AAAAJ&hl" target="_blank" class="text-sm font-medium text-primary border border-primary px-5 py-2 rounded hover:bg-slate-50 transition">
-                        Scholar
-                    </a>
-                    <a href="https://www.scopus.com/authid/detail.uri?authorId=57204688163" target="_blank" class="text-sm font-medium text-primary border border-primary px-5 py-2 rounded hover:bg-slate-50 transition">
-                        SCOPUS
-                    </a>
-                    <a href="https://www.linkedin.com/in/mateus-pereira-martin/" target="_blank" class="text-sm font-medium text-primary border border-primary px-5 py-2 rounded hover:bg-slate-50 transition">
-                        LinkedIn
-                    </a>                   
-                </div>
-            </div>
-
-            <!-- Coluna da Imagem (Sua foto) -->
-            <div class="w-48 md:w-56 lg:w-64 flex-shrink-0 mx-auto md:mx-0 mb-6 md:mb-0">
-                <img src="figuras/mateus1.png" alt="Prof. Dr. Mateus P. Martin" class="w-full h-auto rounded-xl shadow-md border border-slate-200 object-cover">
-            </div>
-
-        </div>
-
-        <!-- Trajetória Acadêmica -->
-        <section class="mb-12">
-            <h2 class="text-2xl font-semibold text-slate-800 mb-6 flex items-center">
-                <span class="w-1.5 h-6 bg-secondary mr-3 inline-block"></span>
-                Trajetória Acadêmica
-            </h2>
-            <div class="prose prose-slate max-w-none text-slate-700 font-light leading-relaxed space-y-4">
-				<p>
-					Minha formação acadêmica é alicerçada na integração entre a Engenharia de Produção e os métodos quantitativos aplicados a sistemas produtivos.
-				</p>
-				<p>
-					Sou bacharel em Engenharia de Produção pela FCA/UNICAMP (2013), período em que realizei intercâmbio acadêmico na <a href="https://www.upv.es/" target="_blank" class="text-primary hover:text-secondary font-medium transition">Universitat Politècnica de València (Espanha)</a>. Concluí o mestrado em Engenharia Elétrica pela FEEC/UNICAMP (2016) e o doutorado em Engenharia de Produção pelo PPGEP/UFSCar (2019), com período de doutorado-sanduíche na <a href="https://www.up.pt/feup/pt/" target="_blank" class="text-primary hover:text-secondary font-medium transition">Faculdade de Engenharia da Universidade do Porto (Portugal)</a>.
-				</p>
-				<p>
-					Realizei estágio de pós-doutorado no Programa de Pós-Graduação em Pesquisa Operacional (PPGPO) da UNIFESP/ITA (2020–2021). Atuei como docente da Universidade Federal Fluminense (UFF), vinculado ao Departamento de Engenharia de Produção do Campus Petrópolis entre 2021 e 2024 e ao <a href="http://ppgep.uff.br/" target="_blank" class="text-primary hover:text-secondary font-medium transition">Programa de Pós-Graduação em Engenharia de Produção (mestrado profissional)</a> da Escola de Engenharia Industrial Metalúrgica de Volta Redonda entre 2023 e 2026.
-				</p>
-            </div>
-        </section>
-
-		<!-- Áreas de Atuação -->
-		<section class="mb-12">
-			<h2 class="text-2xl font-semibold text-slate-800 mb-6 flex items-center">
-				<span class="w-1.5 h-6 bg-secondary mr-3 inline-block"></span>
-				Áreas de Atuação
-			</h2>
-		
-			<div class="grid md:grid-cols-2 gap-8">
-		
-				<div class="bg-slate-50 p-6 border border-slate-200 rounded md:col-span-2">
-					<h3 class="font-medium text-primary mb-2">Pesquisa Operacional e Otimização</h3>
-					<p class="text-sm text-slate-600 font-light">
-						Desenvolvimento e aplicação de abordagens baseadas em Programação Linear Inteira Mista e Programação por Restrições para a resolução de problemas em sistemas produtivos e logísticos. O foco reside na modelagem matemática para otimização de recursos, com aplicações que abrangem desde problemas de manufatura, como corte e empacotamento, até a programação de operações industriais, incluindo gestão de pátios e logística de transportes.
-					</p>
-				</div>
-		
-				<div class="bg-slate-50 p-6 border border-slate-200 rounded">
-					<h3 class="font-medium text-primary mb-2">Gestão de Sistemas Produtivos e Logísticos</h3>
-					<p class="text-sm text-slate-600 font-light">
-						Estudo e aprimoramento de sistemas produtivos e logísticos, com ênfase no planejamento da produção, gestão da cadeia de suprimentos, logística e transformação digital. As atividades concentram-se na análise e no redesenho de processos, na coordenação de fluxos de materiais e informações e na construção de operações mais eficientes, resilientes e sustentáveis.
-					</p>
-				</div>
-		
-				<div class="bg-slate-50 p-6 border border-slate-200 rounded">
-					<h3 class="font-medium text-primary mb-2">Inteligência Artificial</h3>
-					<p class="text-sm text-slate-600 font-light">
-						Integração entre Pesquisa Operacional e Aprendizado de Máquina por meio do desenvolvimento de abordagens híbridas para apoio à tomada de decisão. Busca-se combinar a capacidade preditiva do Aprendizado de Máquina ao rigor prescritivo da Pesquisa Operacional em aplicações voltadas à gestão de operações em sistemas produtivos e logísticos.
-					</p>
-				</div>
-		
-			</div>
-		</section>
-        
-        <!-- Distinções e Inovação -->
-        <section>
-            <h2 class="text-2xl font-semibold text-slate-800 mb-6 flex items-center">
-                <span class="w-1.5 h-6 bg-secondary mr-3 inline-block"></span>
-                Destaques
-            </h2>
-            <ul class="space-y-4 text-sm text-slate-700 font-light">
-                <li class="flex items-start">
-                    <span class="text-secondary mr-2 font-bold">2020 |</span>
-                    <span>Menção honrosa no Prêmio de Teses da Sociedade Brasileira de Pesquisa Operacional (SBPO).</span>
-                </li>
-            </ul>
-        </section>
-    </main>
-
-	<footer class="bg-slate-50 border-t border-slate-200 py-8">
-		<div class="max-w-6xl mx-auto px-4 text-center flex flex-col items-center">
-			<div class="flex gap-8 mb-6 items-center">
-				<a href="https://www.ufscar.br" target="_blank" class="hover:opacity-80 transition">
-					<img src="figuras/logoUFSCar.png" alt="Logo UFSCar" class="h-16 w-auto">
-				</a>
-				<a href="https://www.ccgt.ufscar.br/pt-br" target="_blank" class="hover:opacity-80 transition">
-					<img src="figuras/logoCCGT.png" alt="Logo UFSCar" class="h-16 w-auto">
-				</a>
-				<a href="https://www.ppgeps.ufscar.br" target="_blank" class="hover:opacity-80 transition">
-					<img src="figuras/logoPPGEPS.png" alt="Logo PPGEPS" class="h-16 w-auto">
-				</a>
-				<!-- <img src="figuras/logoLOGOS.png" alt="Logo LOGOS" class="h-16 w-auto"> -->
-			</div>
-			
-			<div class="mt-4 mb-4 flex flex-col md:flex-row justify-center gap-2 text-sm text-slate-700">
-				<p class="font-medium">Prof. Dr. Mateus Pereira Martin. UFSCar - Sorocaba, SP. Contato: mpmartin-@-ufscar-.-br (sem hífens).</p>
-			</div>
-			
-			<p class="text-slate-500 text-xs font-light max-w-2xl px-4">
-				Este é um site de caráter acadêmico e pessoal. As informações aqui contidas são de responsabilidade do autor e não representam o posicionamento oficial da Universidade Federal de São Carlos (UFSCar).
-			</p>
-		</div>
-	</footer>
-
-    <script>
-        function toggleMenu() {
-            const menu = document.getElementById('mobile-menu');
-            const btn = document.getElementById('menu-btn');
-            menu.classList.toggle('hidden');
-        }
-    </script>
+<body>
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="site-header"><div class="wrap">
+<a class="brand" href="index.html"><img src="figuras/logo-ufscar.png" alt="UFSCar" width="247" height="180"><span class="brand-text"><strong>Mateus P. Martin</strong><span>UFSCar · Sorocaba</span></span></a>
+<button type="button" class="menu-btn" aria-expanded="false" aria-controls="nav">Menu</button>
+<nav class="nav" id="nav" aria-label="Principal"><a href="index.html" aria-current="page">Início</a><a href="pesquisa.html">Pesquisa</a><a href="publicacoes.html">Publicações</a><a href="orientacao.html">Orientação</a><a href="ensino.html">Ensino</a><a href="extensao.html">Extensão</a></nav>
+<a class="lang" href="en/index.html" hreflang="en" lang="en">EN</a>
+</div></header>
+<main id="conteudo">
+<section class="hero"><div class="wrap">
+<div class="hero-text">
+<p class="eyebrow">Pesquisa Operacional · Engenharia de Produção</p>
+<h1>Mateus Pereira Martin<span>Professor do Departamento de Engenharia de Produção da UFSCar, campus Sorocaba</span></h1>
+<p class="lead">Desenvolvo modelos matemáticos e algoritmos para decisões de produção e logística: como cortar, empacotar, programar e transportar com menos desperdício e menos custo.</p>
+<div class="ids"><a href="http://lattes.cnpq.br/9814295914139504" target="_blank" rel="noopener">Lattes</a><a href="https://orcid.org/0000-0002-6722-7571" target="_blank" rel="noopener">ORCID</a><a href="https://scholar.google.com.br/citations?user=QnhlnG8AAAAJ&hl" target="_blank" rel="noopener">Google Scholar</a><a href="https://www.scopus.com/authid/detail.uri?authorId=57204688163" target="_blank" rel="noopener">Scopus</a><a href="https://www.webofscience.com/wos/author/record/ADG-9938-2022" target="_blank" rel="noopener">Web of Science</a><a href="https://www.linkedin.com/in/mateus-pereira-martin/" target="_blank" rel="noopener">LinkedIn</a></div>
+</div>
+<figure class="hero-art" style="margin:0">
+<img class="photo" src="figuras/mateus.jpg" alt="Foto de Mateus Pereira Martin" width="720" height="960">
+</figure>
+</div></section><div class="wrap"><dl class="facts">
+<div><dt>artigos em periódicos</dt><dd>22</dd></div>
+<div><dt>orientações concluídas</dt><dd>6</dd></div>
+<div><dt>orientações em andamento</dt><dd>4</dd></div>
+<div><dt>projetos financiados (CNPq, FAPESP)</dt><dd>3</dd></div>
+</dl></div><section class="section"><div class="wrap"><div class="section-head"><p class="eyebrow">Atuação</p><h2>Áreas de atuação</h2></div><div class="cols"><div class="item"><h3>Pesquisa Operacional e otimização</h3><p>Programação linear inteira mista e programação por restrições para corte e empacotamento, programação de operações industriais e logística de transportes.</p></div><div class="item"><h3>Sistemas produtivos e logísticos</h3><p>Planejamento da produção, cadeia de suprimentos e redesenho de processos para operações mais eficientes, resilientes e sustentáveis.</p></div><div class="item"><h3>Inteligência artificial</h3><p>Abordagens híbridas que combinam a previsão do aprendizado de máquina com a prescrição da Pesquisa Operacional.</p></div></div></div></section><section class="section"><div class="wrap"><div class="section-head"><p class="eyebrow">Trajetória</p><h2>Formação e carreira</h2></div><ol class="timeline" reversed><li><span class="when">2024 –</span><div><strong>Professor, Departamento de Engenharia de Produção (DEP-So), UFSCar Sorocaba</strong><span>Docente credenciado no Programa de Pós-Graduação em Engenharia de Produção (PPGEPS)</span></div></li><li><span class="when">2021 – 2024</span><div><strong>Professor, Universidade Federal Fluminense (UFF), Petrópolis</strong><span>Docente do mestrado profissional em Engenharia de Produção da UFF em Volta Redonda (2023 – 2026)</span></div></li><li><span class="when">2020 – 2021</span><div><strong>Pós-doutorado em Pesquisa Operacional</strong><span>PPGPO, UNIFESP/ITA</span></div></li><li><span class="when">2019</span><div><strong>Doutorado em Engenharia de Produção</strong><span>PPGEP/UFSCar, com doutorado-sanduíche na Faculdade de Engenharia da Universidade do Porto (2018 – 2019). Menção honrosa no Prêmio de Teses da SOBRAPO (SBPO 2020).</span></div></li><li><span class="when">2016</span><div><strong>Mestrado em Engenharia Elétrica</strong><span>FEEC/UNICAMP</span></div></li><li><span class="when">2013</span><div><strong>Bacharelado em Engenharia de Produção</strong><span>FCA/UNICAMP, com intercâmbio na Universitat Politècnica de València (2012)</span></div></li></ol></div></section><section class="logos-band" aria-labelledby="logos-t"><div class="wrap">
+<img src="figuras/logos-claro.png" alt="LOGOS: Laboratório de Otimização em Gestão de Operações Sustentáveis" width="900" height="160" loading="lazy">
+<div class="text"><p class="eyebrow">Laboratório</p>
+<h2 id="logos-t">LOGOS</h2>
+<p>O Laboratório de Otimização em Gestão de Operações Sustentáveis reúne os estudantes de iniciação científica e de mestrado que oriento na UFSCar Sorocaba. O grupo desenvolve modelos matemáticos e algoritmos para problemas reais de produção e logística, sempre com código, instâncias e resultados reprodutíveis.</p>
+<p><a href="orientacao.html">Conheça os membros e como participar</a></p>
+</div></div></section><section class="section"><div class="wrap"><div class="section-head"><p class="eyebrow">Publicações</p><h2>Artigos mais recentes</h2></div><ul class="pubs"><li class="pub" data-topic="prod"><span class="year">2027</span><div class="body"><h3>Optimization of structural assembly scheduling in the aeronautics industry</h3><p class="authors">B. J. V. da Silva, <b>M. Martin</b>, R. Morabito, V. Pureza</p><p class="venue"><i>International Transactions in Operational Research</i>, v. 34, n. 2, p. 822–846, 2027.</p><p class="meta"><span class="tag">Programação da produção e manutenção</span><a class="doi" href="https://doi.org/10.1111/itor.70214" target="_blank" rel="noopener">doi:10.1111/itor.70214</a></p></div></li><li class="pub" data-topic="corte"><span class="year">2026</span><div class="body"><h3>Problemas de corte bi- e tridimensional guilhotinados k-estágios e restritos: uma extensão do algoritmo de Wang</h3><p class="authors"><span class="st">V. F. Henriques</span>, <b>M. Martin</b></p><p class="venue"><i>Pesquisa Operacional para o Desenvolvimento</i>, v. 20, art. e20004, 2026.</p><p class="meta"><span class="tag">Corte e empacotamento</span><a class="doi" href="https://doi.org/10.59254/PODes.2026.004" target="_blank" rel="noopener">doi:10.59254/PODes.2026.004</a></p></div></li><li class="pub" data-topic="prod"><span class="year">2026</span><div class="body"><h3>Applying project scheduling approaches to optimize aircraft maintenance activities</h3><p class="authors">M. O. Pileggi, <b>M. Martin</b>, R. Morabito</p><p class="venue"><i>TOP</i>, v. 34, n. 3, p. 523–547, 2026.</p><p class="meta"><span class="tag">Programação da produção e manutenção</span><a class="doi" href="https://doi.org/10.1007/s11750-026-00722-9" target="_blank" rel="noopener">doi:10.1007/s11750-026-00722-9</a></p></div></li></ul><p style="margin-top:1.5rem"><a class="btn btn-ghost" href="publicacoes.html">Ver os 22 artigos</a></p></div></section>
+</main>
+<footer class="site-footer"><div class="wrap">
+<div class="footer-top">
+<div class="contact"><strong>Mateus Pereira Martin</strong>
+<span class="muted" style="font-size:.9rem">Departamento de Engenharia de Produção, UFSCar · Sorocaba, SP</span>
+<span class="email-row"><a class="email" data-email data-show data-u="mpmartin" data-d="ufscar.br">mpmartin [arroba] ufscar.br</a><button type="button" class="copy" data-u="mpmartin" data-d="ufscar.br" data-done="Copiado">Copiar</button></span></div>
+<div class="inst">
+<a href="https://www.ufscar.br/" target="_blank" rel="noopener"><img src="figuras/logo-ufscar.png" alt="UFSCar" width="247" height="180" loading="lazy"></a>
+<a href="https://www.ccgt.ufscar.br/pt-br" target="_blank" rel="noopener"><img src="figuras/logo-ccgt.png" alt="CCGT/UFSCar" width="200" height="75" loading="lazy"></a>
+<a href="https://www.ppgeps.ufscar.br/pt-br/" target="_blank" rel="noopener"><img src="figuras/logo-ppgeps.png" alt="PPGEPS/UFSCar" width="200" height="162" loading="lazy"></a>
+<a href="pesquisa.html"><img src="figuras/logos-claro.png" alt="LOGOS" width="900" height="160" loading="lazy"></a>
+</div></div>
+<p>Site acadêmico e pessoal. As informações são de responsabilidade do autor e não representam posição oficial da Universidade Federal de São Carlos.
+Atualizado em outubro de 2026.</p>
+</div></footer>
+<script src="assets/site.js"></script>
 </body>
 </html>
