@@ -50,7 +50,7 @@ p { margin: 0; }
   padding-left: max(16px, env(safe-area-inset-left, 0px));
   padding-right: max(16px, env(safe-area-inset-right, 0px));
 }
-.prose { max-width: 66ch; display: grid; gap: 1rem; }
+.prose { max-width: 66ch; display: grid; gap: 1rem; align-content: start; }
 .lead { font-size: 1.02rem; color: var(--muted); max-width: 64ch; }
 .eyebrow { font-size: var(--step--1); font-weight: 600; color: var(--orange); }
 .muted { color: var(--muted); }
@@ -158,7 +158,7 @@ main { display: block; }
 @media (max-width: 860px) { .cols { grid-template-columns: 1fr; } }
 @media (max-width: 680px) { .cols-2 { grid-template-columns: 1fr; } }
 .item { display: grid; gap: 0.6rem; align-content: start; min-width: 0; }
-.cols > .item { background: var(--surface); border-top: 3px solid var(--orange); border-radius: var(--radius); padding: 1.25rem; }
+.cols > .item, .cards > .item { background: var(--surface); border-top: 3px solid var(--orange); border-radius: var(--radius); padding: 1.25rem; }
 .item h3 { font-size: 1.05rem; }
 .item p { font-size: 0.875rem; }
 .item p { color: var(--muted); }
@@ -284,3 +284,11 @@ main { display: block; }
 .inst img { height: 2.4rem; width: auto; }
 .site-footer p { font-size: 0.85rem; color: var(--muted); max-width: 70ch; }
 .site-footer .contact { display: grid; gap: 0.3rem; }
+
+@media (max-width: 560px) {
+  .brand { gap: 0.5rem; }
+  .brand img { height: 2rem; }
+  .brand-text { padding-left: 0.5rem; }
+  .brand strong { font-size: 1rem; white-space: nowrap; }
+  .site-header .wrap { gap: 0.5rem; }
+}

@@ -11,17 +11,17 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
 from dados import (ATUALIZADO, BASE_URL, COLAB, EMAIL_D, EMAIL_U, LINKS,  # noqa: E402
-                   ORIENTACOES, PUBS, TEMAS)
+                   ORIENTACOES, PREMIOS, PUBS, TEMAS)
 
 ROOT = Path(__file__).resolve().parent.parent
 E = html.escape
 
 PAGES = [  # chave, arquivo pt, arquivo en, rótulo pt, rótulo en
     ("inicio", "index.html", "index.html", "Início", "Home"),
-    ("pesquisa", "pesquisa.html", "research.html", "Pesquisa", "Research"),
-    ("publicacoes", "publicacoes.html", "publications.html", "Publicações", "Publications"),
-    ("orientacao", "orientacao.html", "advising.html", "Orientação", "Advising"),
     ("ensino", "ensino.html", "teaching.html", "Ensino", "Teaching"),
+    ("orientacao", "orientacao.html", "advising.html", "Orientação", "Advising"),
+    ("publicacoes", "publicacoes.html", "publications.html", "Produção", "Publications"),
+    ("pesquisa", "pesquisa.html", "research.html", "Pesquisa", "Research"),
     ("extensao", "extensao.html", "outreach.html", "Extensão", "Outreach"),
 ]
 FILE = {k: {"pt": pt, "en": en} for k, pt, en, _, _ in PAGES}
@@ -135,9 +135,9 @@ def page_inicio(lang, pre):
 </div></section>'''
 
     facts = f'''<div class="wrap"><dl class="facts">
-<div><dt>{T(lang, "artigos em periódicos", "journal articles")}</dt><dd>{n_pubs}</dd></div>
 <div><dt>{T(lang, "orientações concluídas", "completed supervisions")}</dt><dd>{n_conc}</dd></div>
 <div><dt>{T(lang, "orientações em andamento", "ongoing supervisions")}</dt><dd>{n_and}</dd></div>
+<div><dt>{T(lang, "artigos em periódicos", "journal articles")}</dt><dd>{n_pubs}</dd></div>
 <div><dt>{T(lang, "projetos financiados (CNPq, FAPESP)", "funded projects (CNPq, FAPESP)")}</dt><dd>3</dd></div>
 </dl></div>'''
 
@@ -148,25 +148,25 @@ def page_inicio(lang, pre):
          T(lang, "Docente do mestrado profissional em Engenharia de Produção da UFF em Volta Redonda (2023 – 2026)", "Faculty member of UFF's professional master's program in Industrial Engineering, Volta Redonda (2023 – 2026)")),
         ("2020 – 2021", T(lang, "Pós-doutorado em Pesquisa Operacional", "Postdoctoral researcher in Operations Research"),
          "PPGPO, UNIFESP/ITA"),
-        ("2019", T(lang, "Doutorado em Engenharia de Produção", "PhD in Industrial Engineering"),
-         T(lang, "PPGEP/UFSCar, com doutorado-sanduíche na Faculdade de Engenharia da Universidade do Porto (2018 – 2019). Menção honrosa no Prêmio de Teses da SOBRAPO (SBPO 2020).",
-           "PPGEP/UFSCar, with a visiting period at the Faculty of Engineering of the University of Porto (2018 – 2019). Honorable mention, SOBRAPO Thesis Award (SBPO 2020).")),
-        ("2016", T(lang, "Mestrado em Engenharia Elétrica", "MSc in Electrical Engineering"), "FEEC/UNICAMP"),
-        ("2013", T(lang, "Bacharelado em Engenharia de Produção", "BSc in Industrial Engineering"),
-         T(lang, "FCA/UNICAMP, com intercâmbio na Universitat Politècnica de València (2012)", "FCA/UNICAMP, with an exchange semester at the Universitat Politècnica de València (2012)")),
+        ("2016 – 2019", T(lang, "Doutorado em Engenharia de Produção", "PhD in Industrial Engineering"),
+         T(lang, "PPGEP/UFSCar, com doutorado-sanduíche na Faculdade de Engenharia da Universidade do Porto (out/2018 – set/2019).",
+           "PPGEP/UFSCar, with a visiting period at the Faculty of Engineering of the University of Porto (Oct 2018 – Sep 2019).")),
+        ("2014 – 2016", T(lang, "Mestrado em Engenharia Elétrica", "MSc in Electrical Engineering"), "FEEC/UNICAMP"),
+        ("2009 – 2013", T(lang, "Bacharelado em Engenharia de Produção", "BSc in Industrial Engineering"),
+         T(lang, "FCA/UNICAMP, com intercâmbio na Universitat Politècnica de València (fev – jul/2012)", "FCA/UNICAMP, with an exchange semester at the Universitat Politècnica de València (Feb – Jul 2012)")),
     ]
     tl = "".join(f'<li><span class="when">{w}</span><div><strong>{t}</strong><span>{s}</span></div></li>' for w, t, s in tl_items)
 
     areas = [
-        (T(lang, "Pesquisa Operacional e otimização", "Operations Research and optimization"),
-         T(lang, "Programação linear inteira mista e programação por restrições para corte e empacotamento, programação de operações industriais e logística de transportes.",
-           "Mixed-integer linear programming and constraint programming for cutting and packing, industrial scheduling and transport logistics.")),
-        (T(lang, "Sistemas produtivos e logísticos", "Production and logistics systems"),
-         T(lang, "Planejamento da produção, cadeia de suprimentos e redesenho de processos para operações mais eficientes, resilientes e sustentáveis.",
-           "Production planning, supply chains and process redesign for more efficient, resilient and sustainable operations.")),
-        (T(lang, "Inteligência artificial", "Artificial intelligence"),
-         T(lang, "Abordagens híbridas que combinam a previsão do aprendizado de máquina com a prescrição da Pesquisa Operacional.",
-           "Hybrid approaches that combine machine-learning prediction with operations-research prescription.")),
+        (T(lang, "Pesquisa Operacional e Otimização", "Operations Research and Optimization"),
+         T(lang, "Desenvolvimento e aplicação de abordagens baseadas em Programação Linear Inteira Mista e Programação por Restrições para a resolução de problemas em sistemas produtivos e logísticos. O foco reside na modelagem matemática para otimização de recursos, com aplicações que abrangem desde problemas de manufatura, como corte e empacotamento, até a programação de operações industriais, incluindo gestão de pátios e logística de transportes.",
+           "Development and application of approaches based on Mixed-Integer Linear Programming and Constraint Programming to solve problems in production and logistics systems. The focus is on mathematical modeling for resource optimization, with applications ranging from manufacturing problems, such as cutting and packing, to the scheduling of industrial operations, including yard management and transport logistics.")),
+        (T(lang, "Gestão de Sistemas Produtivos e Logísticos", "Management of Production and Logistics Systems"),
+         T(lang, "Estudo e aprimoramento de sistemas produtivos e logísticos, com ênfase no planejamento da produção, gestão da cadeia de suprimentos, logística e transformação digital. As atividades concentram-se na análise e no redesenho de processos, na coordenação de fluxos de materiais e informações e na construção de operações mais eficientes, resilientes e sustentáveis.",
+           "Study and improvement of production and logistics systems, with emphasis on production planning, supply chain management, logistics and digital transformation. Activities focus on analyzing and redesigning processes, coordinating material and information flows, and building more efficient, resilient and sustainable operations.")),
+        (T(lang, "Inteligência Artificial", "Artificial Intelligence"),
+         T(lang, "Integração entre Pesquisa Operacional e Aprendizado de Máquina por meio do desenvolvimento de abordagens híbridas para apoio à tomada de decisão. Busca-se combinar a capacidade preditiva do Aprendizado de Máquina ao rigor prescritivo da Pesquisa Operacional em aplicações voltadas à gestão de operações em sistemas produtivos e logísticos.",
+           "Integration of Operations Research and Machine Learning through hybrid approaches for decision support. The aim is to combine the predictive power of Machine Learning with the prescriptive rigor of Operations Research in applications to operations management in production and logistics systems.")),
     ]
     areas_html = "".join(f'<div class="item"><h3>{a}</h3><p>{b}</p></div>' for a, b in areas)
 
@@ -175,6 +175,8 @@ def page_inicio(lang, pre):
     return (hero + facts
             + section(head_block(T(lang, "Atuação", "Focus"), T(lang, "Áreas de atuação", "Areas of work")) + f'<div class="cols">{areas_html}</div>')
             + section(head_block(T(lang, "Trajetória", "Background"), T(lang, "Formação e carreira", "Education and career")) + f'<ol class="timeline" reversed>{tl}</ol>')
+            + section(head_block(T(lang, "Distinções", "Awards"), T(lang, "Prêmios e distinções", "Awards and honors"))
+                      + '<ol class="timeline">' + "".join(f'<li><span class="when">{p["ano"]}</span><div><span style="color:var(--ink)">{E(p[lang])}</span></div></li>' for p in PREMIOS) + '</ol>')
             + logos_band(lang, pre)
             + section(head_block(T(lang, "Publicações", "Publications"), T(lang, "Artigos mais recentes", "Latest articles"))
                       + f'<ul class="pubs">{recent}</ul><p style="margin-top:1.5rem"><a class="btn btn-ghost" href="{href(lang, "publicacoes")}">'
@@ -251,7 +253,7 @@ def page_publicacoes(lang, pre):
 <p class="empty" id="pub-empty" hidden>{T(lang, "Nenhum artigo encontrado. Tente outro termo ou o filtro Todas.", "No articles found. Try another term or the All filter.")}</p>
 <p class="legend">{T(lang, '<b>Negrito</b>: Mateus Martin. <span class="st">Sublinhado pontilhado</span>: orientando(a) como coautor(a).', '<b>Bold</b>: Mateus Martin. <span class="st">Dotted underline</span>: supervised student as co-author.')}
 {T(lang, "Listas sempre atualizadas também no", "Always-current lists are also on")} <a href="{LINKS[2][1]}" target="_blank" rel="noopener">Google Scholar</a> {T(lang, "e no", "and")} <a href="{LINKS[0][1]}" target="_blank" rel="noopener">{T(lang, "Currículo Lattes", "Lattes CV")}</a>.</p>'''
-    return (page_head(lang, T(lang, "Publicações", "Publications"), T(lang, "Artigos em periódicos", "Journal articles"),
+    return (page_head(lang, T(lang, "Produção", "Publications"), T(lang, "Artigos em periódicos", "Journal articles"),
                       T(lang, f"Os {len(PUBS)} artigos de {min(p['ano'] for p in PUBS)} a {max(p['ano'] for p in PUBS)}, do mais recente ao mais antigo, pelo ano do fascículo. Filtre por tema ou busque por palavra.",
                         f"All {len(PUBS)} articles from {min(p['ano'] for p in PUBS)} to {max(p['ano'] for p in PUBS)}, newest first by issue year. Filter by topic or search by keyword."))
             + section(body))
@@ -274,6 +276,9 @@ def person(o, lang):
         extra = (f'<p>{T(lang, "Coautor(a) do artigo", "Co-author of")} <a href="https://doi.org/{p["doi"]}" target="_blank" rel="noopener">'
                  f'“{E(p["titulo"])}”</a> (<i>{E(p["revista"])}</i>, {p["ano"]}).</p>')
     title = o.get(lang)
+    if o.get("premio"):
+        extra += (f'<p><span class="tag tag-orange">{T(lang, "Menção honrosa", "Honorable mention")}</span> '
+                  + T(lang, "Prêmio ABEPRO &amp; Lean Way 2026, XLVI ENEGEP.", "ABEPRO &amp; Lean Way Award 2026, XLVI ENEGEP.") + "</p>")
     return (f'<li class="person"><div class="who"><strong>{E(o["nome"])}</strong><span class="muted" style="font-size:.88rem">{E(curso)}</span>'
             f'<div class="tags">{tags}</div></div><div class="what">'
             + (f'<h3 style="font-size:1.02rem;font-family:var(--font-body);font-weight:600;line-height:1.45">{E(title)}</h3>' if title else "")
@@ -301,7 +306,7 @@ def page_orientacao(lang, pre):
     steps_html = "".join(f'<li><div><h3>{a}</h3><p>{b}</p></div></li>' for a, b in steps)
     profile = [
         T(lang, "Estudantes de Engenharia de Produção, Engenharias, Computação, Matemática ou áreas afins", "Students in industrial engineering, other engineering fields, computer science, mathematics or related areas"),
-        T(lang, "Gosto por modelagem matemática e programação (Python é o ponto de partida)", "Enjoy mathematical modeling and programming (Python is the starting point)"),
+        T(lang, "Gosto por resolução de problemas, modelagem matemática e programação", "Enjoy problem solving, mathematical modeling and programming"),
         T(lang, "Disponibilidade semanal regular para o projeto", "Regular weekly time for the project"),
     ]
     return (page_head(lang, T(lang, "Orientação", "Advising"), T(lang, "Orientandos e oportunidades", "Students and opportunities"),
@@ -332,15 +337,18 @@ def page_ensino(lang, pre):
            "Supervised and unsupervised machine learning: data preparation, classification, regression, clustering and association rules, with Google Colab projects and critical reading of papers."),
          COLAB["tia"], T(lang, "Redes neurais artificiais para previsão de séries temporais", "Artificial neural networks for time-series forecasting")),
     ]
-    html_c = "".join(
+    def cards(cs):
+        return "".join(
         f'<div class="item"><div class="figure"><img src="{pre}figuras/{img}" alt="{E(t)}" loading="lazy"></div><h3>{t}</h3><p>{d}</p>'
-        f'<p class="mono" style="font-size:.8rem;color:var(--muted);margin-top:.4rem">Notebook · Google Colab</p>'
+        f'<p style="font-size:.8rem;color:var(--muted);margin-top:.4rem">{T(lang, "Material de apoio · Google Colab", "Support material · Google Colab")}</p>'
         f'<a class="link-out" href="{u}" target="_blank" rel="noopener">{n}</a></div>'
-        for img, t, d, u, n in courses)
-    return (page_head(lang, T(lang, "Ensino", "Teaching"), T(lang, "Aprender fazendo, com código aberto", "Learning by doing, with open notebooks"),
-                      T(lang, "Nas minhas disciplinas a teoria vem acompanhada de implementação. Disponibilizo notebooks no Google Colab com modelos matemáticos, algoritmos e dados para que qualquer pessoa possa executar, alterar e aprender.",
-                        "In my courses, theory comes with implementation. I share Google Colab notebooks with mathematical models, algorithms and data so anyone can run, change and learn from them."))
-            + section(head_block(T(lang, "Graduação", "Undergraduate"), T(lang, "Engenharia de Produção, UFSCar Sorocaba", "Industrial Engineering, UFSCar Sorocaba")) + f'<div class="cols">{html_c}</div>'))
+        for img, t, d, u, n in cs)
+    grad, pos = courses[:2], courses[2:]
+    return (page_head(lang, T(lang, "Ensino", "Teaching"), T(lang, "Da teoria à prática", "From theory to practice"),
+                      T(lang, "Nas minhas disciplinas, os conceitos partem de problemas reais da Engenharia de Produção: planejar a produção, organizar estoques, decidir rotas, prever a demanda. Exemplos resolvidos e materiais de apoio, como notebooks prontos no Google Colab, ajudam a experimentar as ideias. É recomendado conhecimento inicial de programação.",
+                        "In my courses, concepts start from real industrial engineering problems: planning production, managing inventory, choosing routes, forecasting demand. Worked examples and support materials, such as ready-to-use Google Colab notebooks, help students try out the ideas. Basic programming knowledge is recommended."))
+            + section(head_block(T(lang, "Graduação", "Undergraduate"), T(lang, "Engenharia de Produção, UFSCar Sorocaba", "Industrial Engineering, UFSCar Sorocaba")) + f'<div class="cols-2 cards">{cards(grad)}</div>')
+            + section(head_block(T(lang, "Pós-graduação", "Graduate"), T(lang, "Programa de Pós-Graduação em Engenharia de Produção (PPGEPS)", "Graduate Program in Industrial Engineering (PPGEPS)")) + f'<div class="cols-2 cards">{cards(pos)}</div>'))
 
 
 def page_extensao(lang, pre):
@@ -466,7 +474,55 @@ def render(key, lang):
 '''
 
 
+def sitemap():
+    from datetime import date
+    hoje = date.today().isoformat()
+    urls = []
+    for key, *_ in PAGES:
+        pt = BASE_URL + FILE[key]["pt"]
+        en = BASE_URL + "en/" + FILE[key]["en"]
+        alt = (f'<xhtml:link rel="alternate" hreflang="pt-BR" href="{pt}"/>'
+               f'<xhtml:link rel="alternate" hreflang="en" href="{en}"/>')
+        for u in (pt, en):
+            urls.append(f"  <url><loc>{u}</loc><lastmod>{hoje}</lastmod>{alt}</url>")
+    return ('<?xml version="1.0" encoding="UTF-8"?>\n'
+            '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n'
+            + "\n".join(urls) + "\n</urlset>\n")
+
+
+def pagina_404():
+    # Links absolutos: o GitHub Pages serve esta página em qualquer endereço inexistente.
+    return f'''<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Página não encontrada · Mateus Pereira Martin</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="{BASE_URL}assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,600&display=swap">
+<link rel="stylesheet" href="{BASE_URL}assets/site.css">
+</head>
+<body>
+<header class="site-header"><div class="wrap">
+<a class="brand" href="{BASE_URL}"><img src="{BASE_URL}figuras/logo-ufscar.png" alt="UFSCar" width="247" height="180"><span class="brand-text"><strong>Mateus P. Martin</strong><span>UFSCar · Sorocaba</span></span></a>
+</div></header>
+<main><section class="section"><div class="wrap" style="display:grid;gap:1rem;max-width:40rem;margin-inline:0">
+<p class="eyebrow">Erro 404</p>
+<h1>Página não encontrada</h1>
+<p class="lead">O endereço pode ter mudado. Comece pela página inicial ou use o menu.</p>
+<p class="lead" lang="en">Page not found. The address may have changed; start from the home page.</p>
+<div class="actions"><a class="btn" href="{BASE_URL}">Página inicial</a><a class="btn btn-ghost" href="{BASE_URL}en/" lang="en">Home (English)</a></div>
+</div></section></main>
+</body>
+</html>
+'''
+
+
 def main():
+    (ROOT / "sitemap.xml").write_text(sitemap(), encoding="utf-8")
+    (ROOT / "404.html").write_text(pagina_404(), encoding="utf-8")
+    print("ok sitemap.xml, 404.html")
     for key, *_ in PAGES:
         for lang in ("pt", "en"):
             out = ROOT / (FILE[key][lang] if lang == "pt" else "en/" + FILE[key][lang])

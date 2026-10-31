@@ -119,7 +119,7 @@ ORIENTACOES = {
         dict(nome="Vitor Ferrari Henriques", nivel="ic", fomento="FAPESP", curso="Engenharia de Produção, UFSCar",
              pt="Um algoritmo combinatório para o problema de corte guilhotinado k-estágios e restrito",
              en="A combinatorial algorithm for the constrained k-staged guillotine cutting problem", pub=22),
-        dict(nome="João Vítor Gutierres Figueroa", nivel="ic", fomento="FAPESP", curso="Engenharia de Produção, UFSCar",
+        dict(nome="João Vítor Gutierres Figueroa", nivel="ic", fomento="FAPESP", curso="Engenharia de Produção, UFSCar", premio=2026,
              pt="Modelagem matemática para o problema de corte de estoque tridimensional guilhotinado",
              en="Mathematical modeling for the three-dimensional guillotine cutting stock problem"),
         dict(nome="Guilherme Reis Nahass", nivel="ic", fomento="FAPESP", curso="Engenharia de Produção, UFSCar",
@@ -137,3 +137,16 @@ COLAB = {
 }
 
 PUBS.sort(key=lambda p: (p["ano"], p["n"]), reverse=True)
+
+# Prêmios e distinções (mais recente primeiro)
+PREMIOS = [
+    dict(ano=2026,
+         pt="Menção honrosa no Prêmio ABEPRO & Lean Way 2026 (Artigo em Sessões Temáticas), XLVI ENEGEP, pelo trabalho “Uma formulação matemática para o problema de corte de estoque tridimensional guilhotinado”, com o orientando de iniciação científica João Vítor Gutierres Figueroa",
+         en="Honorable mention, ABEPRO & Lean Way Award 2026 (Thematic Sessions paper), XLVI ENEGEP, for “Uma formulação matemática para o problema de corte de estoque tridimensional guilhotinado”, with undergraduate research student João Vítor Gutierres Figueroa"),
+    dict(ano=2020,
+         pt="Menção honrosa no Prêmio de Teses do SBPO, Sociedade Brasileira de Pesquisa Operacional (SOBRAPO), pela tese “Problemas de corte guilhotinado e restritos: formulações matemáticas e métodos de solução”",
+         en="Honorable mention, SBPO Thesis Award, Brazilian Operations Research Society (SOBRAPO), for the PhD thesis on constrained guillotine cutting problems"),
+    dict(ano=2012,
+         pt="Melhor Tema Livre no XX Congresso Interno de Iniciação Científica da UNICAMP",
+         en="Best Free Topic award, 20th UNICAMP Undergraduate Research Congress"),
+]
