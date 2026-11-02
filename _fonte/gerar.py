@@ -104,7 +104,7 @@ def page_head(lang, eyebrow, title, lead):
 
 def logos_band(lang, pre):
     return f'''<section class="logos-band" aria-labelledby="logos-t"><div class="wrap">
-<img src="{pre}figuras/logos-assinatura.png" alt="LOGOS: Laboratório de Otimização em Gestão de Operações Sustentáveis" width="1600" height="714" loading="lazy">
+<img src="{pre}figuras/logos-horizontal.png" alt="LOGOS: Laboratório de Otimização em Gestão de Operações Sustentáveis" width="1600" height="579" loading="lazy">
 <div class="text"><p class="eyebrow">{T(lang, "Laboratório", "Lab")}</p>
 <h2 id="logos-t">LOGOS</h2>
 <p>{T(lang,
@@ -492,7 +492,7 @@ def render(key, lang):
 <a href="https://www.ufscar.br/" target="_blank" rel="noopener"><img src="{pre}figuras/logo-ufscar.png" alt="UFSCar" width="247" height="180" loading="lazy"></a>
 <a href="https://www.ccgt.ufscar.br/pt-br" target="_blank" rel="noopener"><img src="{pre}figuras/logo-ccgt.png" alt="CCGT/UFSCar" width="200" height="75" loading="lazy"></a>
 <a href="https://www.ppgeps.ufscar.br/pt-br/" target="_blank" rel="noopener"><img src="{pre}figuras/logo-ppgeps.png" alt="PPGEPS/UFSCar" width="200" height="162" loading="lazy"></a>
-<a href="{FILE["pesquisa"][lang]}"><img src="{pre}figuras/logos-simbolo.png" alt="LOGOS" title="LOGOS" width="1600" height="1600" loading="lazy"></a>
+<a href="{FILE["pesquisa"][lang]}"><img src="{pre}figuras/logos-simbolo-claro.png" alt="LOGOS" title="LOGOS" width="1600" height="1600" loading="lazy"></a>
 </div></div>
 <p class="footer-note">{T(lang, "Site acadêmico e pessoal. As informações são de responsabilidade do autor e não representam posição oficial da Universidade Federal de São Carlos.",
        "Personal academic website. Its content is the author's responsibility and does not represent an official position of the Federal University of São Carlos.")}
