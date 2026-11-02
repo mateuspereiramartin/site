@@ -200,6 +200,7 @@ main { display: block; }
 .logos-band .eyebrow { color: var(--green); }
 .logos-band .text { display: grid; gap: 1rem; min-width: 0; }
 @media (max-width: 760px) { .logos-band .wrap { grid-template-columns: 1fr; } }
+.page-head + .logos-band { border-top: 0; }
 
 /* Publicações */
 .pubs { list-style: none; margin: 0; padding: 0; display: grid; }

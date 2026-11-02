@@ -3,6 +3,7 @@
 
 BASE_URL = "https://mateuspereiramartin.github.io/site/"
 EMAIL_U, EMAIL_D = "mpmartin", "ufscar.br"
+ELI_EMAIL_U, ELI_EMAIL_D = "eli", "ufscar.br"
 ATUALIZADO = {"pt": "novembro de 2026", "en": "November 2026"}
 
 LINKS = [

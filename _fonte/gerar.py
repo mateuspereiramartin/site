@@ -11,7 +11,7 @@ from pathlib import Path
 
 sys.dont_write_bytecode = True  # não gera _fonte/__pycache__
 sys.path.insert(0, str(Path(__file__).parent))
-from dados import (ATUALIZADO, BASE_URL, COLAB, EMAIL_D, EMAIL_U, LINKS,  # noqa: E402
+from dados import (ATUALIZADO, BASE_URL, COLAB, ELI_EMAIL_D, ELI_EMAIL_U, EMAIL_D, EMAIL_U, LINKS,  # noqa: E402
                    ORIENTACOES, PREMIOS, PUBS, TEMAS)
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -39,13 +39,13 @@ def href(lang, key):
 
 # ---------------------------------------------------------------- componentes
 
-def email(lang, subject=None, show=True):
+def email(lang, subject=None, show=True, u=EMAIL_U, d=EMAIL_D):
     subj = f' data-subject="{E(subject)}"' if subject else ""
     copy = T(lang, "Copiar", "Copy")
     done = T(lang, "Copiado", "Copied")
-    return (f'<span class="email-row"><a class="email" data-email data-show data-u="{EMAIL_U}" data-d="{EMAIL_D}"{subj}>'
-            f'{EMAIL_U} [{T(lang, "arroba", "at")}] {EMAIL_D}</a>'
-            f'<button type="button" class="copy" data-u="{EMAIL_U}" data-d="{EMAIL_D}" data-done="{done}">{copy}</button></span>')
+    return (f'<span class="email-row"><a class="email" data-email data-show data-u="{u}" data-d="{d}"{subj}>'
+            f'{u} [{T(lang, "arroba", "at")}] {d}</a>'
+            f'<button type="button" class="copy" data-u="{u}" data-d="{d}" data-done="{done}">{copy}</button></span>')
 
 
 def mail_btn(lang, text, subject, cls="btn"):
@@ -110,15 +110,16 @@ ELI_LINKS = [
 ]
 
 
-def logos_band(lang, pre):
+def logos_band(lang, pre, lazy=True):
     return f'''<section class="logos-band" aria-labelledby="logos-t"><div class="wrap">
-<img src="{pre}figuras/logos-horizontal.png" alt="LOGOS: Laboratório de Otimização em Gestão de Operações Sustentáveis" width="1600" height="579" loading="lazy">
+<img src="{pre}figuras/logos-horizontal.png" alt="LOGOS: Laboratório de Otimização em Gestão de Operações Sustentáveis" width="1600" height="579"{' loading="lazy"' if lazy else ""}>
 <div class="text"><p class="eyebrow">{T(lang, "Laboratório", "Lab")}</p>
 <h2 id="logos-t">LOGOS</h2>
 <p>{T(lang,
  "Formado por mim e pela Profa. Dra. Eli Angela Vitor Toso, ambos docentes do DEP-So/UFSCar Sorocaba e do PPGEPS, o Laboratório de Otimização em Gestão de Operações Sustentáveis reúne nossos orientandos de graduação e pós-graduação e desenvolve modelos matemáticos e algoritmos para problemas práticos de produção e logística.",
  "Formed by Prof. Eli Angela Vitor Toso and me, both faculty members of the Department of Industrial Engineering (DEP-So) at UFSCar Sorocaba and of PPGEPS, the Laboratory of Optimization in Sustainable Operations Management (LOGOS) brings together our undergraduate and graduate students and develops mathematical models and algorithms for practical production and logistics problems.")}</p>
-<p style="font-size:.88rem">{T(lang, "Profa. Eli Toso", "Prof. Eli Toso")}: {" · ".join(f'<a href="{u}" target="_blank" rel="noopener">{n}</a>' for n, u in ELI_LINKS)}</p>
+<div style="display:grid;gap:.4rem"><p style="font-size:.88rem">{T(lang, "Profa. Eli Toso", "Prof. Eli Toso")}: {" · ".join(f'<a href="{u}" target="_blank" rel="noopener">{n}</a>' for n, u in ELI_LINKS)}</p>
+{email(lang, u=ELI_EMAIL_U, d=ELI_EMAIL_D)}</div>
 <p><a href="{href(lang, "orientacao")}#contato">{T(lang, "Saiba como participar do grupo", "Learn how to join the group")}</a></p>
 </div></div></section>'''
 
@@ -266,12 +267,12 @@ def page_pesquisa(lang, pre):
     return (page_head(lang, T(lang, "Pesquisa", "Research"), T(lang, "Otimização para a produção e a logística", "Optimization for production and logistics"),
                       T(lang, "A Pesquisa Operacional usa matemática para encontrar a melhor decisão entre milhões de alternativas: a rota de uma frota, a ordem de produção de uma fábrica, o corte de uma chapa. Meu trabalho propõe formulações exatas e algoritmos eficazes para problemas clássicos da área e para as variantes que aparecem na indústria.",
                         "Operations Research uses mathematics to find the best decision among millions of alternatives: a fleet's routes, a plant's production sequence, how to cut a sheet. My work proposes exact formulations and effective algorithms for classic problems in the field and for the variants that arise in industry."))
+            + logos_band(lang, pre, lazy=False)
             + section(head_block(T(lang, "Linhas", "Topics"), T(lang, "Linhas de pesquisa", "Research topics"),
                                  T(lang, "Em todas as linhas, o trabalho combina modelagem matemática, algoritmos exatos e heurísticos e testes com instâncias da literatura e de casos reais. Mais recentemente, tenho me dedicado ao desenvolvimento de meta-heurísticas, em especial de decoders para o framework Random-Key Optimizer (RKO).",
                                    "Across all topics, the work combines mathematical modeling, exact and heuristic algorithms, and tests on benchmark instances and real cases. More recently, I have focused on developing metaheuristics, in particular decoders for the Random-Key Optimizer (RKO) framework.")) + f'<div class="cols">{lines_html}</div>')
             + section(head_block(T(lang, "Nova linha", "New direction"), T(lang, "Aprendizado de Máquina e Pesquisa Operacional", "Machine Learning and Operations Research")) + ml_html)
-            + section(head_block(T(lang, "Financiamento", "Funding"), T(lang, "Projetos em andamento", "Ongoing projects")) + f'<ul class="people">{proj_html}</ul>')
-            + logos_band(lang, pre))
+            + section(head_block(T(lang, "Financiamento", "Funding"), T(lang, "Projetos em andamento", "Ongoing projects")) + f'<ul class="people">{proj_html}</ul>'))
 
 
 def page_publicacoes(lang, pre):
@@ -484,7 +485,7 @@ def render(key, lang):
 <body>
 <a class="skip" href="#conteudo">{T(lang, "Pular para o conteúdo", "Skip to content")}</a>
 <header class="site-header"><div class="wrap">
-<div class="brand"><a href="https://www.ufscar.br/" target="_blank" rel="noopener" title="UFSCar"><img src="{pre}figuras/logo-ufscar.png" alt="UFSCar" width="247" height="180"></a><a class="brand-text" href="{FILE["inicio"][lang]}"><strong>Mateus P. Martin</strong><span>UFSCar · Sorocaba</span></a></div>
+<div class="brand"><a href="{FILE["pesquisa"][lang]}#logos-t" title="{T(lang, "LOGOS: Laboratório de Otimização em Gestão de Operações Sustentáveis", "LOGOS lab")}"><img src="{pre}figuras/logos-simbolo-192.png" alt="LOGOS" width="192" height="192"></a><a class="brand-text" href="{FILE["inicio"][lang]}"><strong>Mateus P. Martin</strong><span>UFSCar · Sorocaba</span></a></div>
 <button type="button" class="menu-btn" aria-expanded="false" aria-controls="nav">Menu</button>
 <nav class="nav" id="nav" aria-label="{T(lang, "Principal", "Main")}">{nav}</nav>
 <a class="lang" href="{other_href}" hreflang="{T(lang, "en", "pt-BR")}" lang="{T(lang, "en", "pt-BR")}">{T(lang, "EN", "PT")}</a>
@@ -546,7 +547,7 @@ def pagina_404():
 </head>
 <body>
 <header class="site-header"><div class="wrap">
-<div class="brand"><a href="https://www.ufscar.br/" target="_blank" rel="noopener" title="UFSCar"><img src="{BASE_URL}figuras/logo-ufscar.png" alt="UFSCar" width="247" height="180"></a><a class="brand-text" href="{BASE_URL}"><strong>Mateus P. Martin</strong><span>UFSCar · Sorocaba</span></a></div>
+<div class="brand"><a href="{BASE_URL}pesquisa.html#logos-t" title="LOGOS"><img src="{BASE_URL}figuras/logos-simbolo-192.png" alt="LOGOS" width="192" height="192"></a><a class="brand-text" href="{BASE_URL}"><strong>Mateus P. Martin</strong><span>UFSCar · Sorocaba</span></a></div>
 </div></header>
 <main><section class="section"><div class="wrap" style="display:grid;gap:1rem;max-width:40rem;margin-inline:0">
 <p class="eyebrow">Erro 404</p>
