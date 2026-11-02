@@ -4,7 +4,15 @@
 BASE_URL = "https://mateuspereiramartin.github.io/site/"
 EMAIL_U, EMAIL_D = "mpmartin", "ufscar.br"
 ELI_EMAIL_U, ELI_EMAIL_D = "eli", "ufscar.br"
-ATUALIZADO = {"pt": "novembro de 2026", "en": "November 2026"}
+# Mês e ano em que o site foi gerado (preenchido automaticamente).
+import datetime as _dt
+_hoje = _dt.date.today()
+_MESES_PT = ["janeiro", "fevereiro", "março", "abril", "maio", "junho", "julho",
+             "agosto", "setembro", "outubro", "novembro", "dezembro"]
+_MESES_EN = ["January", "February", "March", "April", "May", "June", "July",
+             "August", "September", "October", "November", "December"]
+ATUALIZADO = {"pt": f"{_MESES_PT[_hoje.month - 1]} de {_hoje.year}",
+              "en": f"{_MESES_EN[_hoje.month - 1]} {_hoje.year}"}
 
 LINKS = [
     ("Lattes", "https://lattes.cnpq.br/9814295914139504"),
@@ -117,17 +125,19 @@ ORIENTACOES = {
         dict(nome="Matheus Augusto Almeida Ferreira", nivel="mestrado", fomento=None, curso="Mestrado Profissional, PPGEP/UFF", ano=2026,
              pt="O problema de realocação de blocos em um depósito de bobinas de aço",
              en="The block relocation problem in a steel coil warehouse", pub=17),
-        dict(nome="Vitor Ferrari Henriques", nivel="ic", fomento="FAPESP", curso="Engenharia de Produção, UFSCar",
+        dict(nome="Vitor Ferrari Henriques", nivel="ic", fomento="FAPESP", curso="Engenharia de Produção, UFSCar", ano=2026,
              pt="Um algoritmo combinatório para o problema de corte guilhotinado k-estágios e restrito",
              en="A combinatorial algorithm for the constrained k-staged guillotine cutting problem", pub=22),
-        dict(nome="João Vítor Gutierres Figueroa", nivel="ic", fomento="FAPESP", curso="Engenharia de Produção, UFSCar", premio=2026,
+        dict(nome="João Vítor Gutierres Figueroa", nivel="ic", fomento="FAPESP", curso="Engenharia de Produção, UFSCar", ano=2026, premio=2026,
              pt="Modelagem matemática para o problema de corte de estoque tridimensional guilhotinado",
              en="Mathematical modeling for the three-dimensional guillotine cutting stock problem"),
-        dict(nome="Guilherme Reis Nahass", nivel="ic", fomento="FAPESP", curso="Engenharia de Produção, UFSCar",
+        dict(nome="Guilherme Reis Nahass", nivel="ic", fomento="FAPESP", curso="Engenharia de Produção, UFSCar", ano=2026,
              pt="Metaheurísticas de chaves aleatórias para o problema de realocação de blocos",
              en="Random-key metaheuristics for the block relocation problem"),
         dict(nome="João Gabriel de Souza Pinto Sales", nivel="mestrado", coorientacao=True, fomento=None,
-             curso="Mestrado Profissional, PPGEP/UFF", pt=None, en=None, pub=19),
+             curso="Mestrado Profissional, PPGEP/UFF", ano=2025,
+             pt="Análise de seleção de caldeiras da fábrica de papel com emprego do método multicritério TODIM",
+             en="Boiler selection analysis in a paper mill using the TODIM multicriteria method", pub=19),
     ],
 }
 
@@ -149,5 +159,5 @@ PREMIOS = [
          en="Honorable mention, SBPO Thesis Award, Brazilian Operations Research Society (SOBRAPO), for the PhD thesis on constrained guillotine cutting problems"),
     dict(ano=2012,
          pt="Melhor Tema Livre no XX Congresso Interno de Iniciação Científica da UNICAMP",
-         en="Best Free Topic award, 20th UNICAMP Undergraduate Research Congress"),
+         en="Best Paper award (open session), 20th UNICAMP Undergraduate Research Congress"),
 ]
