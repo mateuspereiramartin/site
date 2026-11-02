@@ -9,6 +9,7 @@ import html
 import sys
 from pathlib import Path
 
+sys.dont_write_bytecode = True  # não gera _fonte/__pycache__
 sys.path.insert(0, str(Path(__file__).parent))
 from dados import (ATUALIZADO, BASE_URL, COLAB, EMAIL_D, EMAIL_U, LINKS,  # noqa: E402
                    ORIENTACOES, PREMIOS, PUBS, TEMAS)
@@ -97,18 +98,18 @@ def head_block(eyebrow, title, intro=""):
 
 
 def page_head(lang, eyebrow, title, lead):
-    return (f'<header class="page-head"><div class="wrap" style="display:grid;gap:1rem">'
+    return (f'<header class="page-head"><div class="wrap" style="display:grid;gap:0.6rem">'
             f'<p class="eyebrow">{eyebrow}</p><h1>{title}</h1><p class="lead">{lead}</p></div></header>')
 
 
 def logos_band(lang, pre):
     return f'''<section class="logos-band" aria-labelledby="logos-t"><div class="wrap">
-<img src="{pre}figuras/logos-claro.png" alt="LOGOS: Laboratório de Otimização em Gestão de Operações Sustentáveis" width="900" height="160" loading="lazy">
+<img src="{pre}figuras/logos-vertical.png" alt="LOGOS: Laboratório de Otimização em Gestão de Operações Sustentáveis" width="900" height="394" loading="lazy">
 <div class="text"><p class="eyebrow">{T(lang, "Laboratório", "Lab")}</p>
 <h2 id="logos-t">LOGOS</h2>
 <p>{T(lang,
- "O Laboratório de Otimização em Gestão de Operações Sustentáveis reúne os estudantes de iniciação científica e de mestrado que oriento na UFSCar Sorocaba. O grupo desenvolve modelos matemáticos e algoritmos para problemas reais de produção e logística, sempre com código, instâncias e resultados reprodutíveis.",
- "The Laboratory of Optimization in Sustainable Operations Management (LOGOS) brings together the undergraduate research and master's students I supervise at UFSCar Sorocaba. The group develops mathematical models and algorithms for real production and logistics problems, with reproducible code, instances and results.")}</p>
+ "O Laboratório de Otimização em Gestão de Operações Sustentáveis reúne os estudantes de iniciação científica que oriento na UFSCar Sorocaba e está aberto a estudantes de mestrado e doutorado do PPGEPS. O grupo desenvolve modelos matemáticos e algoritmos para problemas reais de produção e logística, sempre com código, instâncias e resultados reprodutíveis.",
+ "The Laboratory of Optimization in Sustainable Operations Management (LOGOS) brings together the undergraduate research students I supervise at UFSCar Sorocaba and is open to master's and PhD students in PPGEPS. The group develops mathematical models and algorithms for real production and logistics problems, with reproducible code, instances and results.")}</p>
 <p><a href="{href(lang, "orientacao")}">{T(lang, "Conheça os membros e como participar", "Meet the members and learn how to join")}</a></p>
 </div></div></section>'''
 
@@ -143,7 +144,7 @@ def page_inicio(lang, pre):
 
     tl_items = [
         ("2024 –", T(lang, "Professor, Departamento de Engenharia de Produção (DEP-So), UFSCar Sorocaba", "Professor, Department of Industrial Engineering (DEP-So), UFSCar Sorocaba"),
-         T(lang, "Docente credenciado no Programa de Pós-Graduação em Engenharia de Produção (PPGEPS)", "Faculty member of the Graduate Program in Industrial Engineering (PPGEPS)")),
+         T(lang, "Docente credenciado no Programa de Pós-Graduação em Engenharia de Produção (PPGEPS), com orientação de mestrado e doutorado", "Faculty member of the Graduate Program in Industrial Engineering (PPGEPS), supervising master's and PhD students")),
         ("2021 – 2024", T(lang, "Professor, Universidade Federal Fluminense (UFF), Petrópolis", "Professor, Fluminense Federal University (UFF), Petrópolis"),
          T(lang, "Docente do mestrado profissional em Engenharia de Produção da UFF em Volta Redonda (2023 – 2026)", "Faculty member of UFF's professional master's program in Industrial Engineering, Volta Redonda (2023 – 2026)")),
         ("2020 – 2021", T(lang, "Pós-doutorado em Pesquisa Operacional", "Postdoctoral researcher in Operations Research"),
@@ -170,39 +171,72 @@ def page_inicio(lang, pre):
     ]
     areas_html = "".join(f'<div class="item"><h3>{a}</h3><p>{b}</p></div>' for a, b in areas)
 
-    recent = "".join(pub_item(p, lang) for p in PUBS[:3])
-
     return (hero + facts
             + section(head_block(T(lang, "Atuação", "Focus"), T(lang, "Áreas de atuação", "Areas of work")) + f'<div class="cols">{areas_html}</div>')
             + section(head_block(T(lang, "Trajetória", "Background"), T(lang, "Formação e carreira", "Education and career")) + f'<ol class="timeline" reversed>{tl}</ol>')
             + section(head_block(T(lang, "Distinções", "Awards"), T(lang, "Prêmios e distinções", "Awards and honors"))
                       + '<ol class="timeline">' + "".join(f'<li><span class="when">{p["ano"]}</span><div><span style="color:var(--ink)">{E(p[lang])}</span></div></li>' for p in PREMIOS) + '</ol>')
-            + logos_band(lang, pre)
-            + section(head_block(T(lang, "Publicações", "Publications"), T(lang, "Artigos mais recentes", "Latest articles"))
-                      + f'<ul class="pubs">{recent}</ul><p style="margin-top:1.5rem"><a class="btn btn-ghost" href="{href(lang, "publicacoes")}">'
-                      + T(lang, f"Ver os {n_pubs} artigos", f"See all {n_pubs} articles") + "</a></p>"))
+            + logos_band(lang, pre))
 
 
 def page_pesquisa(lang, pre):
     lines = [
         ("problema-corte.png", T(lang, "Corte e empacotamento", "Cutting and packing"),
-         T(lang, "Problemas de corte (1D, 2D e 3D) e de empacotamento para reduzir o desperdício de matéria-prima e otimizar o arranjo de peças em processos industriais, como no corte de chapas de aço, vidro e madeira.",
-           "Cutting (1D, 2D and 3D) and packing problems that reduce raw-material waste and optimize piece layouts in industrial processes such as cutting steel, glass and wood."),
+         T(lang, "Como dividir chapas, bobinas e blocos de matéria-prima em peças menores com o mínimo de desperdício, ou como acomodar itens em placas, caixas e contêineres. São problemas do dia a dia de indústrias de aço, vidro, madeira, papel e móveis, e o meu principal tema desde o doutorado.",
+           "How to cut sheets, rolls and blocks of raw material into smaller pieces with minimal waste, or how to fit items into plates, boxes and containers. These problems are part of daily operations in the steel, glass, wood, paper and furniture industries, and they have been my main topic since my PhD."),
+         [T(lang, "Formulações de programação linear inteira mista para cortes guilhotinados em duas e três dimensões, com padrões restritos e número limitado de estágios",
+            "Mixed-integer linear programming formulations for two- and three-dimensional guillotine cutting, with constrained patterns and a limited number of stages"),
+          T(lang, "Variantes industriais: placas com defeitos, custo de setup, limite de pilhas abertas e dispersão de pedidos",
+            "Industrial variants: plates with defects, setup costs, a limit on open stacks and order spread"),
+          T(lang, "Programação por restrições, decomposição de Benders e algoritmos dedicados (abordagens top-down e bottom-up)",
+            "Constraint programming, Benders decomposition and dedicated algorithms (top-down and bottom-up approaches)")],
          ["CSP", "2D-ODRPP", "3D-ODRPP", "2BPP-OS"]),
         ("problema-scheduling.png", T(lang, "Programação da produção e manutenção", "Production and maintenance scheduling"),
-         T(lang, "Sequenciamento de operações com recursos limitados, da minimização de pilhas abertas à montagem estrutural e à manutenção de aeronaves.",
-           "Sequencing operations under limited resources, from minimizing open stacks to aircraft structural assembly and maintenance."),
+         T(lang, "Em que ordem e com quais recursos executar as operações de uma fábrica ou de uma equipe de manutenção, respeitando precedências, prazos e capacidades limitadas. Pequenas mudanças na sequência podem reduzir bastante o tempo total e o custo.",
+           "In what order and with which resources to carry out the operations of a plant or a maintenance crew, respecting precedences, deadlines and limited capacities. Small changes in the sequence can greatly reduce total time and cost."),
+         [T(lang, "Minimização de pilhas abertas e sua integração com o problema de corte",
+            "Minimization of open stacks and its integration with cutting problems"),
+          T(lang, "Montagem estrutural e manutenção de aeronaves, modeladas como programação de projetos com recursos limitados",
+            "Aircraft structural assembly and maintenance, modeled as resource-constrained project scheduling"),
+          T(lang, "Alocação de recursos de manutenção para aumentar a confiabilidade de redes de distribuição de energia",
+            "Allocation of maintenance resources to improve the reliability of power distribution networks")],
          ["MOSP", "ASASP", "RCPSP"]),
         ("problema-logistica.png", T(lang, "Logística", "Logistics"),
-         T(lang, "Modelos para operações logísticas, como a realocação de blocos em pátios e depósitos e a recuperação de voos para unidades marítimas de petróleo e gás.",
-           "Models for logistics operations such as block relocation in yards and warehouses and flight recovery for offshore oil and gas units."),
+         T(lang, "Planejamento da movimentação de cargas, veículos e aeronaves em sistemas com muitas restrições operacionais, em que cada decisão afeta as seguintes e imprevistos exigem replanejamento rápido.",
+           "Planning the movement of cargo, vehicles and aircraft in systems with many operational constraints, where each decision affects the next and disruptions call for fast replanning."),
+         [T(lang, "Realocação de blocos e contêineres em pátios e depósitos, com meta-heurísticas de chaves aleatórias",
+            "Block and container relocation in yards and warehouses, with random-key metaheuristics"),
+          T(lang, "Recuperação da programação de voos para unidades marítimas de petróleo e gás, com programação por restrições e busca local iterada",
+            "Flight schedule recovery for offshore oil and gas units, with constraint programming and iterated local search"),
+          T(lang, "Problemas integrados de localização, roteamento e programação de operações logísticas",
+            "Integrated location, routing and scheduling problems in logistics")],
          ["BRP", "ARP"]),
     ]
     acr_note = T(lang, "Siglas dos problemas na literatura", "Problem acronyms used in the literature")
     lines_html = "".join(
         f'<div class="item"><div class="figure"><img src="{pre}figuras/{img}" alt="{E(t)}" loading="lazy"></div><h3>{t}</h3><p>{d}</p>'
+        f'<ul class="checklist checklist-sm">' + "".join(f"<li>{x}</li>" for x in focus) + "</ul>"
         f'<div class="tags" aria-label="{acr_note}">' + "".join(f'<span class="tag tag-green">{a}</span>' for a in acr) + "</div></div>"
-        for img, t, d, acr in lines)
+        for img, t, d, focus, acr in lines)
+
+    ml_topics = [
+        T(lang, "Modelagem de problemas de produção e logística como Processos de Decisão Markovianos",
+          "Modeling production and logistics problems as Markov Decision Processes"),
+        T(lang, "Aprendizado por Reforço para decisões sequenciais, como despacho, sequenciamento, controle de estoques e roteamento dinâmico",
+          "Reinforcement Learning for sequential decisions such as dispatching, sequencing, inventory control and dynamic routing"),
+        T(lang, "Métodos híbridos, em que modelos de otimização e políticas aprendidas se complementam",
+          "Hybrid methods in which optimization models and learned policies complement each other"),
+        T(lang, "Aprendizado de máquina para acelerar algoritmos de otimização, por exemplo na escolha de heurísticas",
+          "Machine learning to speed up optimization algorithms, for example in choosing heuristics"),
+    ]
+    ml_html = (f'<div class="cols-2"><div class="prose">'
+        f'<p>{T(lang, "Muitas decisões em produção e logística são sequenciais e tomadas sob incerteza: a demanda muda, máquinas param, pedidos chegam ao longo do dia. Os modelos clássicos de otimização resolvem muito bem um cenário fixo, mas é mais difícil usá-los quando é preciso decidir de novo a cada evento.", "Many decisions in production and logistics are sequential and made under uncertainty: demand changes, machines break down, orders arrive throughout the day. Classic optimization models handle a fixed scenario very well, but they are harder to use when a new decision is needed at every event.")}</p>'
+        f'<p>{T(lang, "Por isso estou abrindo uma linha na interface entre Aprendizado de Máquina e Pesquisa Operacional, com foco em Aprendizado por Reforço e Processos de Decisão Markovianos. A ideia é combinar o que cada área faz melhor: o aprendizado de máquina para aprender políticas de decisão a partir de dados e simulação, e a Pesquisa Operacional para dar estrutura ao problema e garantir soluções viáveis e de qualidade mensurável.", "That is why I am opening a line at the interface between Machine Learning and Operations Research, focused on Reinforcement Learning and Markov Decision Processes. The idea is to combine what each field does best: machine learning to learn decision policies from data and simulation, and Operations Research to give the problem structure and ensure feasible solutions of measurable quality.")}</p>'
+        f'<p>{T(lang, "O tema dialoga com a disciplina Tópicos em Inteligência Artificial, do PPGEPS.", "The topic connects with the graduate course Topics in Artificial Intelligence (PPGEPS).")}</p></div>'
+        f'<div class="callout"><h3>{T(lang, "Temas de interesse", "Topics of interest")}</h3>'
+        f'<ul class="checklist">' + "".join(f"<li>{x}</li>" for x in ml_topics) + "</ul>"
+        f'<p>{T(lang, "Estudantes interessados são bem-vindos, mesmo sem experiência prévia em aprendizado por reforço.", "Interested students are welcome, even without prior experience in reinforcement learning.")}</p>'
+        f'<a href="{href(lang, "orientacao")}#contato" style="justify-self:start;font-weight:600">{T(lang, "Como ser orientado(a)", "How to join the group")}</a></div></div>')
 
     projects = [
         ("CNPq · Universal 10/2023", T(lang, "Métodos inteligentes de otimização para problemas de escalonamento e roteamento", "Intelligent optimization methods for scheduling and routing problems"),
@@ -210,28 +244,25 @@ def page_pesquisa(lang, pre):
            "Scheduling and vehicle routing with real constraints (priorities, time windows, uncertainty), using exact methods and metaheuristics for logistics and healthcare. Coordinator: Thiago Alves de Queiroz.")),
         ("FAPESP · Temático 2022/05803-3", T(lang, "Problemas de corte, empacotamento, dimensionamento de lotes, programação da produção, roteamento e localização e suas integrações em contextos industriais e logísticos",
                                             "Cutting, packing, lot-sizing, scheduling, routing and location problems and their integration in industrial and logistics settings"),
-         T(lang, "Modelos e algoritmos para problemas integrados de planejamento, em cooperação entre a academia e o setor produtivo.",
-           "Models and algorithms for integrated planning problems, in cooperation between academia and industry.")),
+         T(lang, "Modelos e algoritmos para problemas integrados de planejamento, em cooperação entre a academia e o setor produtivo. Coordenação: Reinaldo Morabito Neto.",
+           "Models and algorithms for integrated planning problems, in cooperation between academia and industry. Coordinator: Reinaldo Morabito Neto.")),
         ("CNPq · Universal", T(lang, "Soluções integradas para problemas logísticos complexos via otimização", "Integrated solutions for complex logistics problems via optimization"),
-         T(lang, "Modelos matemáticos e algoritmos para problemas integrados de localização, roteamento e programação de operações logísticas.",
-           "Mathematical models and algorithms for integrated location, routing and logistics scheduling problems.")),
+         T(lang, "Modelos matemáticos e algoritmos para problemas integrados de localização, roteamento e programação de operações logísticas. Coordenação: Reinaldo Morabito Neto.",
+           "Mathematical models and algorithms for integrated location, routing and logistics scheduling problems. Coordinator: Reinaldo Morabito Neto.")),
     ]
     proj_html = "".join(
         f'<li class="person"><div class="who"><span class="tag tag-orange">{a}</span><span class="muted" style="font-size:.9rem">{T(lang, "Pesquisador integrante", "Team member")}</span></div>'
         f'<div class="what"><h3>{t}</h3><p>{d}</p></div></li>' for a, t, d in projects)
 
-    recent = "".join(pub_item(p, lang) for p in PUBS[:5])
-
     return (page_head(lang, T(lang, "Pesquisa", "Research"), T(lang, "Otimização para a produção e a logística", "Optimization for production and logistics"),
                       T(lang, "A Pesquisa Operacional usa matemática para encontrar a melhor decisão entre milhões de alternativas: a rota de uma frota, a ordem de produção de uma fábrica, o corte de uma chapa. Meu trabalho propõe formulações exatas e algoritmos eficazes para problemas clássicos da área e para as variantes que aparecem na indústria.",
                         "Operations Research uses mathematics to find the best decision among millions of alternatives: a fleet's routes, a plant's production sequence, how to cut a sheet. My work proposes exact formulations and effective algorithms for classic problems in the field and for the variants that arise in industry."))
-            + section(head_block(T(lang, "Linhas", "Topics"), T(lang, "Linhas de pesquisa", "Research topics")) + f'<div class="cols">{lines_html}</div>')
+            + section(head_block(T(lang, "Linhas", "Topics"), T(lang, "Linhas de pesquisa", "Research topics"),
+                                 T(lang, "Em todas as linhas, o trabalho combina modelagem matemática, algoritmos exatos e heurísticos e testes com instâncias da literatura e de casos reais.",
+                                   "Across all topics, the work combines mathematical modeling, exact and heuristic algorithms, and tests on benchmark instances and real cases.")) + f'<div class="cols">{lines_html}</div>')
+            + section(head_block(T(lang, "Nova linha", "New direction"), T(lang, "Aprendizado de Máquina e Pesquisa Operacional", "Machine Learning and Operations Research")) + ml_html)
             + section(head_block(T(lang, "Financiamento", "Funding"), T(lang, "Projetos em andamento", "Ongoing projects")) + f'<ul class="people">{proj_html}</ul>')
-            + logos_band(lang, pre)
-            + section(head_block(T(lang, "Produção", "Output"), T(lang, "Publicações recentes", "Recent publications"))
-                      + f'<ul class="pubs">{recent}</ul><div class="actions" style="margin-top:1.5rem">'
-                      + f'<a class="btn btn-ghost" href="{href(lang, "publicacoes")}">{T(lang, "Lista completa de publicações", "Full publication list")}</a>'
-                      + f'<a class="btn btn-ghost" href="{href(lang, "extensao")}">{T(lang, "Parcerias com empresas", "Industry partnerships")}</a></div>'))
+            + logos_band(lang, pre))
 
 
 def page_publicacoes(lang, pre):
@@ -260,7 +291,7 @@ def page_publicacoes(lang, pre):
 
 
 def person(o, lang):
-    nivel = {"ic": T(lang, "Iniciação científica", "Undergraduate research"), "mestrado": T(lang, "Mestrado", "Master's")}[o["nivel"]]
+    nivel = {"ic": T(lang, "Iniciação científica", "Undergraduate research"), "mestrado": T(lang, "Mestrado", "Master's"), "doutorado": T(lang, "Doutorado", "PhD")}[o["nivel"]]
     tags = f'<span class="tag tag-green">{nivel}</span>'
     if o.get("coorientacao"):
         tags += f'<span class="tag">{T(lang, "Coorientação", "Co-supervision")}</span>'
@@ -291,8 +322,8 @@ def page_orientacao(lang, pre):
     en_note = "" if lang == "pt" else '<p class="muted" style="font-size:.88rem;margin-bottom:1rem">Project titles translated from Portuguese.</p>'
     steps = [
         (T(lang, "Escolha um tema", "Pick a topic"),
-         T(lang, "Veja as linhas de pesquisa e as publicações recentes. Não é preciso ter um tema fechado; uma área de interesse basta para começar a conversa.",
-           "Look at the research topics and recent publications. You do not need a finished idea; an area of interest is enough to start.")),
+         T(lang, f'Veja as <a href="{href(lang, "pesquisa")}">linhas de pesquisa</a> e as <a href="{href(lang, "publicacoes")}">publicações recentes</a>. Não é preciso ter um tema fechado; uma área de interesse basta para começar a conversa.',
+           f'Look at the <a href="{href(lang, "pesquisa")}">research topics</a> and <a href="{href(lang, "publicacoes")}">recent publications</a>. You do not need a finished idea; an area of interest is enough to start.')),
         (T(lang, "Envie um e-mail", "Send an email"),
          T(lang, "Conte em poucas linhas seu curso, seu interesse e sua disponibilidade. Anexe o histórico escolar e o link do Currículo Lattes.",
            "Briefly describe your program, your interests and your availability. Attach your transcript and a CV.")),
@@ -300,18 +331,18 @@ def page_orientacao(lang, pre):
          T(lang, "Marcamos uma conversa. Em seguida vem um período de estudo com leituras e implementação em Python e solvers de otimização.",
            "We schedule a meeting, followed by a study period with readings and implementation in Python and optimization solvers.")),
         (T(lang, "Projeto e bolsa", "Proposal and funding"),
-         T(lang, "Escrevemos juntos o projeto para pedir bolsa: FAPESP ou PIBIC/CNPq na iniciação científica; no mestrado, o ingresso é pelo processo seletivo do PPGEPS.",
-           "We write the proposal together to apply for a scholarship: FAPESP or PIBIC/CNPq for undergraduate research; for the master's, admission is through the PPGEPS selection process.")),
+         T(lang, "Havendo afinidade, elaboramos juntos um projeto e avaliamos a possibilidade de pedir bolsa (por exemplo, CNPq ou FAPESP). Para mestrado e doutorado, o ingresso é pelo processo seletivo do PPGEPS.",
+           "If there is a good fit, we write a project together and consider applying for a scholarship (e.g., CNPq or FAPESP). For the master's and PhD, admission is through the PPGEPS selection process.")),
     ]
     steps_html = "".join(f'<li><div><h3>{a}</h3><p>{b}</p></div></li>' for a, b in steps)
     profile = [
-        T(lang, "Estudantes de Engenharia de Produção, Engenharias, Computação, Matemática ou áreas afins", "Students in industrial engineering, other engineering fields, computer science, mathematics or related areas"),
+        T(lang, "Estudantes de Engenharia de Produção, Computação, Matemática ou áreas afins", "Students in industrial engineering, computer science, mathematics or related areas"),
         T(lang, "Gosto por resolução de problemas, modelagem matemática e programação", "Enjoy problem solving, mathematical modeling and programming"),
         T(lang, "Disponibilidade semanal regular para o projeto", "Regular weekly time for the project"),
     ]
     return (page_head(lang, T(lang, "Orientação", "Advising"), T(lang, "Orientandos e oportunidades", "Students and opportunities"),
-                      T(lang, "Oriento iniciação científica na graduação em Engenharia de Produção da UFSCar Sorocaba e mestrado no PPGEPS. Os projetos partem de problemas reais e costumam resultar em artigos com os estudantes como coautores.",
-                        "I supervise undergraduate research in Industrial Engineering at UFSCar Sorocaba and master's students in PPGEPS. Projects start from real problems and often lead to articles co-authored by the students."))
+                      T(lang, "Oriento projetos de iniciação científica e trabalhos de graduação no bacharelado em Engenharia de Produção da UFSCar Sorocaba, além de dissertações de mestrado e teses de doutorado no PPGEPS. Os projetos partem de problemas reais e costumam resultar em artigos com os estudantes como coautores.",
+                        "I supervise undergraduate research projects and final-year theses in the Industrial Engineering program at UFSCar Sorocaba, as well as master's and PhD research in PPGEPS. Projects start from real problems and often lead to articles co-authored by the students."))
             + section(head_block(T(lang, "Em andamento", "Ongoing"), T(lang, "Orientações em andamento", "Current students")) + en_note + f'<ul class="people">{and_}</ul>')
             + section(head_block(T(lang, "Concluídas", "Completed"), T(lang, "Orientações concluídas", "Former students")) + en_note + f'<ul class="people">{conc}</ul>')
             + section(head_block(T(lang, "Participe", "Join"), T(lang, "Como ser orientado(a)", "How to join the group"))
@@ -333,8 +364,8 @@ def page_ensino(lang, pre):
            "Modern operations research topics for production and logistics: mixed-integer linear programming, multi-objective optimization, stochastic programming, heuristics and metaheuristics, implemented in Python with Gurobi/CPLEX."),
          COLAB["tpo"], T(lang, "Visualizando a busca em meta-heurísticas populacionais", "Visualizing search in population-based metaheuristics")),
         ("disciplina-tia.png", T(lang, "Tópicos em Inteligência Artificial", "Topics in Artificial Intelligence"),
-         T(lang, "Aprendizado de máquina supervisionado e não supervisionado: preparação de dados, classificação, regressão, agrupamento e regras de associação, com projetos em Google Colab e leitura crítica de artigos.",
-           "Supervised and unsupervised machine learning: data preparation, classification, regression, clustering and association rules, with Google Colab projects and critical reading of papers."),
+         T(lang, "Aprendizado de máquina aplicado à Engenharia de Produção: análise exploratória de dados, aprendizado não supervisionado (agrupamento e redução de dimensionalidade), supervisionado (classificação e regressão) e por reforço, com processos de decisão de Markov e sua interface com a Pesquisa Operacional.",
+           "Machine learning applied to industrial engineering: exploratory data analysis, unsupervised learning (clustering and dimensionality reduction), supervised learning (classification and regression) and reinforcement learning, with Markov decision processes and their connection to operations research."),
          COLAB["tia"], T(lang, "Redes neurais artificiais para previsão de séries temporais", "Artificial neural networks for time-series forecasting")),
     ]
     def cards(cs):
@@ -380,8 +411,8 @@ def page_extensao(lang, pre):
                       + f'''<div class="cols-2"><div class="prose">
 <p>{T(lang, "Problemas reais pedem mais que formulações teóricas: pedem sistemas de apoio à decisão que gerem resultado mensurável. Traduzo gargalos operacionais em modelos matemáticos e algoritmos sob medida, em projetos de P&amp;D e parcerias com a universidade.",
       "Real problems need more than theoretical formulations: they need decision-support systems with measurable results. I translate operational bottlenecks into tailored mathematical models and algorithms, through R&amp;D projects and university partnerships.")}</p>
-<p>{T(lang, "Antes da carreira acadêmica, trabalhei na UniSoma, consultoria de modelagem matemática que aplica Pesquisa Operacional em empresas de vários setores. Projetos recentes partiram de demandas da siderurgia, da indústria aeronáutica e do transporte aéreo para o setor de petróleo e gás.",
-      "Before my academic career I worked at UniSoma, a mathematical modeling consultancy that applies operations research for companies in many sectors. Recent projects started from needs in steelmaking, the aeronautics industry and air transport for the oil and gas sector.")}</p>
+<p>{T(lang, "Antes da carreira acadêmica, estagiei em uma consultoria de modelagem matemática que aplica Pesquisa Operacional em empresas de vários setores. Projetos recentes partiram de demandas da siderurgia, da indústria aeronáutica e do transporte aéreo para o setor de petróleo e gás.",
+      "Before my academic career I interned at a mathematical modeling consultancy that applies operations research for companies in many sectors. Recent projects started from needs in steelmaking, the aeronautics industry and air transport for the oil and gas sector.")}</p>
 </div><div class="callout"><h3>{T(lang, "Frentes de atuação", "Areas")}</h3><ul class="checklist">{"".join(f"<li>{f}</li>" for f in fronts)}</ul>
 <p>{T(lang, "Descreva a situação-problema da sua empresa:", "Describe your company's problem:")}</p>{email(lang)}
 {mail_btn(lang, T(lang, "Enviar e-mail sobre parceria", "Email about a partnership"), T(lang, "Contato via site: parceria com empresa", "Website contact: industry partnership"))}</div></div>''', id_="contato")
@@ -399,7 +430,7 @@ DESC = {
                "Mateus Pereira Martin, Industrial Engineering professor at UFSCar Sorocaba. Operations research for production and logistics."),
     "pesquisa": ("Linhas de pesquisa, projetos financiados e o laboratório LOGOS.", "Research topics, funded projects and the LOGOS lab."),
     "publicacoes": ("Lista completa de artigos em periódicos, com filtro por tema.", "Full list of journal articles, filterable by topic."),
-    "orientacao": ("Orientações de iniciação científica e mestrado, e como participar do grupo.", "Undergraduate research and master's supervision, and how to join."),
+    "orientacao": ("Orientações de iniciação científica, mestrado e doutorado, e como participar do grupo.", "Undergraduate research, master's and PhD supervision, and how to join."),
     "ensino": ("Disciplinas e notebooks abertos no Google Colab.", "Courses and open Google Colab notebooks."),
     "extensao": ("Parcerias com empresas e cursos de extensão.", "Industry partnerships and short courses."),
 }
@@ -423,7 +454,6 @@ def render(key, lang):
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>{E(title)}</title>
-<meta name="claude:viewport-fit-sides" content="cover">
 <meta name="description" content="{E(desc)}">
 <link rel="canonical" href="{url_pt if lang == "pt" else url_en}">
 <link rel="alternate" hreflang="pt-BR" href="{url_pt}">
@@ -445,7 +475,7 @@ def render(key, lang):
 <body>
 <a class="skip" href="#conteudo">{T(lang, "Pular para o conteúdo", "Skip to content")}</a>
 <header class="site-header"><div class="wrap">
-<a class="brand" href="{FILE["inicio"][lang]}"><img src="{pre}figuras/logo-ufscar.png" alt="UFSCar" width="247" height="180"><span class="brand-text"><strong>Mateus P. Martin</strong><span>UFSCar · Sorocaba</span></span></a>
+<div class="brand"><a href="https://www.ufscar.br/" target="_blank" rel="noopener" title="UFSCar"><img src="{pre}figuras/logo-ufscar.png" alt="UFSCar" width="247" height="180"></a><a class="brand-text" href="{FILE["inicio"][lang]}"><strong>Mateus P. Martin</strong><span>UFSCar · Sorocaba</span></a></div>
 <button type="button" class="menu-btn" aria-expanded="false" aria-controls="nav">Menu</button>
 <nav class="nav" id="nav" aria-label="{T(lang, "Principal", "Main")}">{nav}</nav>
 <a class="lang" href="{other_href}" hreflang="{T(lang, "en", "pt-BR")}" lang="{T(lang, "en", "pt-BR")}">{T(lang, "EN", "PT")}</a>
@@ -462,10 +492,12 @@ def render(key, lang):
 <a href="https://www.ufscar.br/" target="_blank" rel="noopener"><img src="{pre}figuras/logo-ufscar.png" alt="UFSCar" width="247" height="180" loading="lazy"></a>
 <a href="https://www.ccgt.ufscar.br/pt-br" target="_blank" rel="noopener"><img src="{pre}figuras/logo-ccgt.png" alt="CCGT/UFSCar" width="200" height="75" loading="lazy"></a>
 <a href="https://www.ppgeps.ufscar.br/pt-br/" target="_blank" rel="noopener"><img src="{pre}figuras/logo-ppgeps.png" alt="PPGEPS/UFSCar" width="200" height="162" loading="lazy"></a>
-<a href="{FILE["pesquisa"][lang]}"><img src="{pre}figuras/logos-claro.png" alt="LOGOS" width="900" height="160" loading="lazy"></a>
+<a href="{FILE["pesquisa"][lang]}"><img src="{pre}figuras/logos-monograma.png" alt="LOGOS" title="LOGOS" width="320" height="354" loading="lazy"></a>
 </div></div>
-<p>{T(lang, "Site acadêmico e pessoal. As informações são de responsabilidade do autor e não representam posição oficial da Universidade Federal de São Carlos.",
+<p class="footer-note">{T(lang, "Site acadêmico e pessoal. As informações são de responsabilidade do autor e não representam posição oficial da Universidade Federal de São Carlos.",
        "Personal academic website. Its content is the author's responsibility and does not represent an official position of the Federal University of São Carlos.")}
+<br>{T(lang, 'Este site usa o Google Analytics para gerar estatísticas de acesso (<a href="https://policies.google.com/technologies/partner-sites?hl=pt-BR" target="_blank" rel="noopener">como o Google usa esses dados</a>).',
+       'This site uses Google Analytics for visit statistics (<a href="https://policies.google.com/technologies/partner-sites?hl=en" target="_blank" rel="noopener">how Google uses this data</a>).')}
 {T(lang, "Atualizado em", "Last updated")} {ATUALIZADO[lang]}.</p>
 </div></footer>
 <script src="{pre}assets/site.js"></script>
@@ -505,7 +537,7 @@ def pagina_404():
 </head>
 <body>
 <header class="site-header"><div class="wrap">
-<a class="brand" href="{BASE_URL}"><img src="{BASE_URL}figuras/logo-ufscar.png" alt="UFSCar" width="247" height="180"><span class="brand-text"><strong>Mateus P. Martin</strong><span>UFSCar · Sorocaba</span></span></a>
+<div class="brand"><a href="https://www.ufscar.br/" target="_blank" rel="noopener" title="UFSCar"><img src="{BASE_URL}figuras/logo-ufscar.png" alt="UFSCar" width="247" height="180"></a><a class="brand-text" href="{BASE_URL}"><strong>Mateus P. Martin</strong><span>UFSCar · Sorocaba</span></a></div>
 </div></header>
 <main><section class="section"><div class="wrap" style="display:grid;gap:1rem;max-width:40rem;margin-inline:0">
 <p class="eyebrow">Erro 404</p>

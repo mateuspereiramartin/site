@@ -3,10 +3,10 @@
 
 BASE_URL = "https://mateuspereiramartin.github.io/site/"
 EMAIL_U, EMAIL_D = "mpmartin", "ufscar.br"
-ATUALIZADO = {"pt": "outubro de 2026", "en": "October 2026"}
+ATUALIZADO = {"pt": "novembro de 2026", "en": "November 2026"}
 
 LINKS = [
-    ("Lattes", "http://lattes.cnpq.br/9814295914139504"),
+    ("Lattes", "https://lattes.cnpq.br/9814295914139504"),
     ("ORCID", "https://orcid.org/0000-0002-6722-7571"),
     ("Google Scholar", "https://scholar.google.com.br/citations?user=QnhlnG8AAAAJ&hl"),
     ("Scopus", "https://www.scopus.com/authid/detail.uri?authorId=57204688163"),
