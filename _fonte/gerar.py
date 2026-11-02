@@ -236,7 +236,7 @@ def page_pesquisa(lang, pre):
         f'<div class="callout"><h3>{T(lang, "Temas de interesse", "Topics of interest")}</h3>'
         f'<ul class="checklist">' + "".join(f"<li>{x}</li>" for x in ml_topics) + "</ul>"
         f'<p>{T(lang, "Estudantes interessados são bem-vindos, mesmo sem experiência prévia em aprendizado por reforço.", "Interested students are welcome, even without prior experience in reinforcement learning.")}</p>'
-        f'<a href="{href(lang, "orientacao")}#contato" style="justify-self:start;font-weight:600">{T(lang, "Como ser orientado(a)", "How to join the group")}</a></div></div>')
+        f'<a href="{href(lang, "orientacao")}#contato" style="justify-self:start;font-weight:600">{T(lang, "Como entrar para nosso grupo de pesquisa", "How to join the group")}</a></div></div>')
 
     projects = [
         ("CNPq · Universal 10/2023", T(lang, "Métodos inteligentes de otimização para problemas de escalonamento e roteamento", "Intelligent optimization methods for scheduling and routing problems"),
@@ -345,7 +345,7 @@ def page_orientacao(lang, pre):
                         "I supervise undergraduate research projects and final-year theses in the Industrial Engineering program at UFSCar Sorocaba, as well as master's and PhD research in PPGEPS. Projects start from real problems and often lead to articles co-authored by the students."))
             + section(head_block(T(lang, "Em andamento", "Ongoing"), T(lang, "Orientações em andamento", "Current students")) + en_note + f'<ul class="people">{and_}</ul>')
             + section(head_block(T(lang, "Concluídas", "Completed"), T(lang, "Orientações concluídas", "Former students")) + en_note + f'<ul class="people">{conc}</ul>')
-            + section(head_block(T(lang, "Participe", "Join"), T(lang, "Como ser orientado(a)", "How to join the group"))
+            + section(head_block(T(lang, "Participe", "Join"), T(lang, "Como entrar para nosso grupo de pesquisa", "How to join the group"))
                       + f'''<div class="cols-2"><ol class="steps">{steps_html}</ol>
 <div class="callout"><h3>{T(lang, "Perfil procurado", "Who we look for")}</h3><ul class="checklist">{"".join(f"<li>{x}</li>" for x in profile)}</ul>
 <p>{T(lang, "Escreva para", "Write to")}:</p>{email(lang)}
