@@ -102,15 +102,24 @@ def page_head(lang, eyebrow, title, lead):
             f'<p class="eyebrow">{eyebrow}</p><h1>{title}</h1><p class="lead">{lead}</p></div></header>')
 
 
+ELI_LINKS = [
+    ("Lattes", "https://lattes.cnpq.br/6663631731115739"),
+    ("ORCID", "https://orcid.org/0000-0001-7531-0300"),
+    ("Scopus", "https://www.scopus.com/authid/detail.uri?authorId=26026490900"),
+    ("ResearchGate", "https://www.researchgate.net/profile/Eli_Angela_Toso"),
+]
+
+
 def logos_band(lang, pre):
     return f'''<section class="logos-band" aria-labelledby="logos-t"><div class="wrap">
 <img src="{pre}figuras/logos-horizontal.png" alt="LOGOS: Laboratório de Otimização em Gestão de Operações Sustentáveis" width="1600" height="579" loading="lazy">
 <div class="text"><p class="eyebrow">{T(lang, "Laboratório", "Lab")}</p>
 <h2 id="logos-t">LOGOS</h2>
 <p>{T(lang,
- "O Laboratório de Otimização em Gestão de Operações Sustentáveis reúne os estudantes de iniciação científica que oriento na UFSCar Sorocaba e está aberto a estudantes de mestrado e doutorado do PPGEPS. O grupo desenvolve modelos matemáticos e algoritmos para problemas reais de produção e logística, sempre com código, instâncias e resultados reprodutíveis.",
- "The Laboratory of Optimization in Sustainable Operations Management (LOGOS) brings together the undergraduate research students I supervise at UFSCar Sorocaba and is open to master's and PhD students in PPGEPS. The group develops mathematical models and algorithms for real production and logistics problems, with reproducible code, instances and results.")}</p>
-<p><a href="{href(lang, "orientacao")}">{T(lang, "Conheça os membros e como participar", "Meet the members and learn how to join")}</a></p>
+ "Formado por mim e pela Profa. Dra. Eli Angela Vitor Toso, ambos docentes do DEP-So/UFSCar Sorocaba e do PPGEPS, o Laboratório de Otimização em Gestão de Operações Sustentáveis reúne nossos orientandos de graduação e pós-graduação e desenvolve modelos matemáticos e algoritmos para problemas práticos de produção e logística.",
+ "Formed by Prof. Eli Angela Vitor Toso and me, both faculty members of the Department of Industrial Engineering (DEP-So) at UFSCar Sorocaba and of PPGEPS, the Laboratory of Optimization in Sustainable Operations Management (LOGOS) brings together our undergraduate and graduate students and develops mathematical models and algorithms for practical production and logistics problems.")}</p>
+<p style="font-size:.88rem">{T(lang, "Profa. Eli Toso", "Prof. Eli Toso")}: {" · ".join(f'<a href="{u}" target="_blank" rel="noopener">{n}</a>' for n, u in ELI_LINKS)}</p>
+<p><a href="{href(lang, "orientacao")}#contato">{T(lang, "Saiba como participar do grupo", "Learn how to join the group")}</a></p>
 </div></div></section>'''
 
 
