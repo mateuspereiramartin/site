@@ -110,7 +110,7 @@ body::before {
 main { display: block; }
 .section { padding-block: clamp(2.25rem, 5vw, 3.5rem); }
 .section + .section { border-top: 1px solid var(--line); }
-.section-head { display: grid; gap: 0.35rem; margin-bottom: 1.5rem; max-width: 66ch; }
+.section-head { display: grid; gap: 0.35rem; margin-bottom: 1.5rem; }
 .page-head { background: var(--surface); border-bottom: 1px solid var(--line); padding-block: clamp(1.25rem, 3vw, 1.75rem); }
 .page-head + .section { border-top: 0; padding-top: clamp(1.5rem, 3vw, 2.25rem); }
 .page-head .wrap { display: grid; gap: 0.75rem; }

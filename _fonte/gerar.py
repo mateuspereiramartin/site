@@ -385,17 +385,17 @@ def page_ensino(lang, pre):
 def page_extensao(lang, pre):
     courses = [
         (T(lang, "Previsão de demanda e analytics", "Demand forecasting and analytics"),
-         T(lang, "Análise quantitativa de séries temporais na indústria com Python: métodos de previsão, métricas de erro e uso das previsões no planejamento.",
-           "Quantitative time-series analysis for industry with Python: forecasting methods, error metrics and using forecasts in planning.")),
+         T(lang, "Previsão de séries temporais com Python para a indústria: métodos de previsão, métricas de erro e uso das previsões no planejamento.",
+           "Time-series forecasting with Python for industry: forecasting methods, error metrics and using forecasts in planning.")),
         (T(lang, "IA generativa aplicada à produção", "Generative AI for operations"),
-         T(lang, "Modelos de linguagem (LLMs) como assistentes no PCP: análise de dados de fábrica, diagnósticos de fluxo de valor e boas práticas de uso.",
-           "Large language models as assistants in production planning: analyzing plant data, value-stream diagnostics and good practices.")),
+         T(lang, "Uso de modelos de linguagem (LLMs) como assistentes no planejamento e controle da produção (PCP): análise de dados de fábrica, diagnóstico do fluxo de valor, boas práticas e limitações.",
+           "Using large language models (LLMs) as assistants in production planning and control: analyzing plant data, value-stream diagnostics, good practices and limitations.")),
         (T(lang, "Gestão de estoques e DDMRP", "Inventory management and DDMRP"),
-         T(lang, "Dimensionamento de buffers, revisão de parâmetros de suprimento e Demand Driven MRP para proteger o fluxo de materiais da variabilidade.",
-           "Buffer sizing, supply parameter review and Demand Driven MRP to protect material flow from variability.")),
-        (T(lang, "Planejamento tático: S&OP", "Tactical planning: S&OP"),
-         T(lang, "Estruturação do processo de Vendas e Operações para equilibrar a demanda projetada com a capacidade produtiva e melhorar o nível de serviço.",
-           "Structuring the Sales and Operations Planning process to balance forecast demand with capacity and improve service levels.")),
+         T(lang, "Fundamentos do Demand Driven MRP: posicionamento e dimensionamento de buffers e revisão de parâmetros de suprimento, para proteger o fluxo de materiais da variabilidade.",
+           "Fundamentals of Demand Driven MRP: buffer positioning and sizing, and review of supply parameters, to protect material flow from variability.")),
+        (T(lang, "Planejamento tático: S&amp;OP", "Tactical planning: S&amp;OP"),
+         T(lang, "Estruturação do Planejamento de Vendas e Operações (S&amp;OP) para alinhar a demanda prevista à capacidade produtiva e melhorar o nível de serviço.",
+           "Structuring Sales and Operations Planning (S&amp;OP) to align forecast demand with production capacity and improve service levels.")),
     ]
     c_html = "".join(f'<div class="course"><span class="tag tag-orange">24 – 48 h</span><h3>{a}</h3><p>{b}</p></div>' for a, b in courses)
     fronts = [
@@ -404,21 +404,21 @@ def page_extensao(lang, pre):
         T(lang, "Programação de operações logísticas, pátios e frotas", "Scheduling of logistics operations, yards and fleets"),
         T(lang, "Previsão de demanda e gestão de estoques", "Demand forecasting and inventory management"),
     ]
-    return (page_head(lang, T(lang, "Extensão", "Outreach"), T(lang, "Universidade e setor produtivo", "University and industry"),
-                      T(lang, "A extensão é uma via de mão dupla: a universidade leva conhecimento às organizações e aprende com seus problemas concretos, que voltam para a sala de aula e para a pesquisa.",
-                        "Outreach goes both ways: the university brings knowledge to organizations and learns from their concrete problems, which feed back into teaching and research."))
-            + section(head_block(T(lang, "Parcerias", "Partnerships"), T(lang, "Pesquisa aplicada para empresas", "Applied research for companies"))
+    return (page_head(lang, T(lang, "Extensão", "Outreach"), T(lang, "Universidade e sociedade", "University and society"),
+                      T(lang, "A extensão é uma via de mão dupla: a universidade compartilha métodos e conhecimento com empresas e instituições, e aprende com os desafios concretos que elas enfrentam. Essa troca melhora decisões na prática e mantém o ensino e a pesquisa conectados aos problemas reais da sociedade.",
+                        "Outreach goes both ways: the university shares methods and knowledge with companies and institutions, and learns from the concrete challenges they face. This exchange improves decisions in practice and keeps teaching and research connected to society's real problems."))
+            + section(head_block(T(lang, "Parcerias", "Partnerships"), T(lang, "Pesquisa aplicada em parceria", "Applied research in partnership"))
                       + f'''<div class="cols-2"><div class="prose">
-<p>{T(lang, "Problemas reais pedem mais que formulações teóricas: pedem sistemas de apoio à decisão que gerem resultado mensurável. Traduzo gargalos operacionais em modelos matemáticos e algoritmos sob medida, em projetos de P&amp;D e parcerias com a universidade.",
-      "Real problems need more than theoretical formulations: they need decision-support systems with measurable results. I translate operational bottlenecks into tailored mathematical models and algorithms, through R&amp;D projects and university partnerships.")}</p>
-<p>{T(lang, "Antes da carreira acadêmica, estagiei em uma consultoria de modelagem matemática que aplica Pesquisa Operacional em empresas de vários setores. Projetos recentes partiram de demandas da siderurgia, da indústria aeronáutica e do transporte aéreo para o setor de petróleo e gás.",
-      "Before my academic career I interned at a mathematical modeling consultancy that applies operations research for companies in many sectors. Recent projects started from needs in steelmaking, the aeronautics industry and air transport for the oil and gas sector.")}</p>
+<p>{T(lang, "Muitos desafios das organizações não se resolvem com fórmulas prontas: pedem sistemas de apoio à decisão feitos sob medida e com resultado mensurável. Em projetos de P&amp;D com empresas, buscamos transformar gargalos operacionais em modelos matemáticos e algoritmos, e as perguntas que surgem nesse processo podem virar temas de pesquisa e casos para a sala de aula.",
+      "Many organizational challenges cannot be solved with off-the-shelf formulas: they call for tailored decision-support systems with measurable results. In R&amp;D projects with companies, we seek to turn operational bottlenecks into mathematical models and algorithms, and the questions that arise along the way can become research topics and classroom cases.")}</p>
+<p>{T(lang, "Meus projetos de pesquisa mais recentes partiram de demandas da siderurgia, da indústria aeronáutica e do transporte aéreo a serviço do setor de petróleo e gás. Antes da carreira acadêmica, estagiei em uma consultoria de modelagem matemática que aplica Pesquisa Operacional em empresas de vários setores.",
+      "My most recent research projects started from needs in steelmaking, the aeronautics industry and air transport serving the oil and gas sector. Before my academic career, I interned at a mathematical modeling consultancy that applies operations research for companies across many sectors.")}</p>
 </div><div class="callout"><h3>{T(lang, "Frentes de atuação", "Areas")}</h3><ul class="checklist">{"".join(f"<li>{f}</li>" for f in fronts)}</ul>
-<p>{T(lang, "Descreva a situação-problema da sua empresa:", "Describe your company's problem:")}</p>{email(lang)}
+<p>{T(lang, "Conte qual é o desafio da sua organização:", "Tell me about your organization's challenge:")}</p>{email(lang)}
 {mail_btn(lang, T(lang, "Enviar e-mail sobre parceria", "Email about a partnership"), T(lang, "Contato via site: parceria com empresa", "Website contact: industry partnership"))}</div></div>''', id_="contato")
             + section(head_block(T(lang, "Capacitação", "Training"), T(lang, "Cursos de extensão", "Short courses"),
-                                 T(lang, "Propostas de cursos que podem ser oferecidos em formato híbrido ou na própria empresa (in company). Conteúdo e carga horária são ajustados à demanda.",
-                                   "Course proposals that can run in a hybrid format or on site at the company. Content and length are adjusted to each request."))
+                                 T(lang, "Propostas de cursos que podem ser oferecidos em formato híbrido ou na própria empresa (in company). Conteúdo e carga horária são ajustados à demanda, e a oferta depende de aprovação do departamento e da universidade.",
+                                   "Course proposals that can run in a hybrid format or on site at the company. Content and length are adjusted to each request, and offering a course requires approval from the department and the university."))
                       + f'<div class="cols-2">{c_html}</div>'))
 
 
