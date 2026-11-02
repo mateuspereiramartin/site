@@ -160,8 +160,8 @@ def page_inicio(lang, pre):
 
     areas = [
         (T(lang, "Pesquisa Operacional e Otimização", "Operations Research and Optimization"),
-         T(lang, "Desenvolvimento e aplicação de abordagens baseadas em Programação Linear Inteira Mista e Programação por Restrições para a resolução de problemas em sistemas produtivos e logísticos. O foco reside na modelagem matemática para otimização de recursos, com aplicações que abrangem desde problemas de manufatura, como corte e empacotamento, até a programação de operações industriais, incluindo gestão de pátios e logística de transportes.",
-           "Development and application of approaches based on Mixed-Integer Linear Programming and Constraint Programming to solve problems in production and logistics systems. The focus is on mathematical modeling for resource optimization, with applications ranging from manufacturing problems, such as cutting and packing, to the scheduling of industrial operations, including yard management and transport logistics.")),
+         T(lang, "Desenvolvimento e aplicação de abordagens baseadas em Programação Linear Inteira Mista, Programação por Restrições e meta-heurísticas para a resolução de problemas em sistemas produtivos e logísticos. Mais recentemente, tenho desenvolvido decoders para o framework Random-Key Optimizer (RKO). O foco reside na modelagem matemática para otimização de recursos, com aplicações que abrangem desde problemas de manufatura, como corte e empacotamento, até a programação de operações industriais, incluindo gestão de pátios e logística de transportes.",
+           "Development and application of approaches based on Mixed-Integer Linear Programming, Constraint Programming and metaheuristics to solve problems in production and logistics systems. More recently, I have been developing decoders for the Random-Key Optimizer (RKO) framework. The focus is on mathematical modeling for resource optimization, with applications ranging from manufacturing problems, such as cutting and packing, to the scheduling of industrial operations, including yard management and transport logistics.")),
         (T(lang, "Gestão de Sistemas Produtivos e Logísticos", "Management of Production and Logistics Systems"),
          T(lang, "Estudo e aprimoramento de sistemas produtivos e logísticos, com ênfase no planejamento da produção, gestão da cadeia de suprimentos, logística e transformação digital. As atividades concentram-se na análise e no redesenho de processos, na coordenação de fluxos de materiais e informações e na construção de operações mais eficientes, resilientes e sustentáveis.",
            "Study and improvement of production and logistics systems, with emphasis on production planning, supply chain management, logistics and digital transformation. Activities focus on analyzing and redesigning processes, coordinating material and information flows, and building more efficient, resilient and sustainable operations.")),
@@ -204,8 +204,8 @@ def page_pesquisa(lang, pre):
         ("problema-logistica.png", T(lang, "Logística", "Logistics"),
          T(lang, "Planejamento da movimentação de cargas, veículos e aeronaves em sistemas com muitas restrições operacionais, em que cada decisão afeta as seguintes e imprevistos exigem replanejamento rápido.",
            "Planning the movement of cargo, vehicles and aircraft in systems with many operational constraints, where each decision affects the next and disruptions call for fast replanning."),
-         [T(lang, "Realocação de blocos e contêineres em pátios e depósitos, com meta-heurísticas de chaves aleatórias",
-            "Block and container relocation in yards and warehouses, with random-key metaheuristics"),
+         [T(lang, "Realocação de blocos e contêineres em pátios e depósitos, com meta-heurísticas de chaves aleatórias (decoders no framework RKO)",
+            "Block and container relocation in yards and warehouses, with random-key metaheuristics (decoders in the RKO framework)"),
           T(lang, "Recuperação da programação de voos para unidades marítimas de petróleo e gás, com programação por restrições e busca local iterada",
             "Flight schedule recovery for offshore oil and gas units, with constraint programming and iterated local search"),
           T(lang, "Problemas integrados de localização, roteamento e programação de operações logísticas",
@@ -258,8 +258,8 @@ def page_pesquisa(lang, pre):
                       T(lang, "A Pesquisa Operacional usa matemática para encontrar a melhor decisão entre milhões de alternativas: a rota de uma frota, a ordem de produção de uma fábrica, o corte de uma chapa. Meu trabalho propõe formulações exatas e algoritmos eficazes para problemas clássicos da área e para as variantes que aparecem na indústria.",
                         "Operations Research uses mathematics to find the best decision among millions of alternatives: a fleet's routes, a plant's production sequence, how to cut a sheet. My work proposes exact formulations and effective algorithms for classic problems in the field and for the variants that arise in industry."))
             + section(head_block(T(lang, "Linhas", "Topics"), T(lang, "Linhas de pesquisa", "Research topics"),
-                                 T(lang, "Em todas as linhas, o trabalho combina modelagem matemática, algoritmos exatos e heurísticos e testes com instâncias da literatura e de casos reais.",
-                                   "Across all topics, the work combines mathematical modeling, exact and heuristic algorithms, and tests on benchmark instances and real cases.")) + f'<div class="cols">{lines_html}</div>')
+                                 T(lang, "Em todas as linhas, o trabalho combina modelagem matemática, algoritmos exatos e heurísticos e testes com instâncias da literatura e de casos reais. Mais recentemente, tenho me dedicado ao desenvolvimento de meta-heurísticas, em especial de decoders para o framework Random-Key Optimizer (RKO).",
+                                   "Across all topics, the work combines mathematical modeling, exact and heuristic algorithms, and tests on benchmark instances and real cases. More recently, I have focused on developing metaheuristics, in particular decoders for the Random-Key Optimizer (RKO) framework.")) + f'<div class="cols">{lines_html}</div>')
             + section(head_block(T(lang, "Nova linha", "New direction"), T(lang, "Aprendizado de Máquina e Pesquisa Operacional", "Machine Learning and Operations Research")) + ml_html)
             + section(head_block(T(lang, "Financiamento", "Funding"), T(lang, "Projetos em andamento", "Ongoing projects")) + f'<ul class="people">{proj_html}</ul>')
             + logos_band(lang, pre))
@@ -328,8 +328,8 @@ def page_orientacao(lang, pre):
          T(lang, "Conte em poucas linhas seu curso, seu interesse e sua disponibilidade. Anexe o histórico escolar e o link do Currículo Lattes.",
            "Briefly describe your program, your interests and your availability. Attach your transcript and a CV.")),
         (T(lang, "Conversa e treinamento", "Meeting and onboarding"),
-         T(lang, "Marcamos uma conversa. Em seguida vem um período de estudo com leituras e implementação em Python e solvers de otimização.",
-           "We schedule a meeting, followed by a study period with readings and implementation in Python and optimization solvers.")),
+         T(lang, "Marcamos uma conversa. Em seguida vem um período de estudo com leituras e implementação em C/C++ ou Python e solvers de otimização, como Gurobi e HiGHS.",
+           "We schedule a meeting, followed by a study period with readings and implementation in C/C++ or Python and optimization solvers such as Gurobi and HiGHS.")),
         (T(lang, "Projeto e bolsa", "Proposal and funding"),
          T(lang, "Havendo afinidade, elaboramos juntos um projeto e avaliamos a possibilidade de pedir bolsa (por exemplo, CNPq ou FAPESP). Para mestrado e doutorado, o ingresso é pelo processo seletivo do PPGEPS.",
            "If there is a good fit, we write a project together and consider applying for a scholarship (e.g., CNPq or FAPESP). For the master's and PhD, admission is through the PPGEPS selection process.")),
@@ -337,7 +337,7 @@ def page_orientacao(lang, pre):
     steps_html = "".join(f'<li><div><h3>{a}</h3><p>{b}</p></div></li>' for a, b in steps)
     profile = [
         T(lang, "Estudantes de Engenharia de Produção, Computação, Matemática ou áreas afins", "Students in industrial engineering, computer science, mathematics or related areas"),
-        T(lang, "Gosto por resolução de problemas, modelagem matemática e programação", "Enjoy problem solving, mathematical modeling and programming"),
+        T(lang, "Gosto por resolução de problemas, modelagem matemática e programação, de preferência em C/C++ ou Python", "Enjoy problem solving, mathematical modeling and programming, preferably in C/C++ or Python"),
         T(lang, "Disponibilidade semanal regular para o projeto", "Regular weekly time for the project"),
     ]
     return (page_head(lang, T(lang, "Orientação", "Advising"), T(lang, "Orientandos e oportunidades", "Students and opportunities"),
@@ -360,8 +360,8 @@ def page_ensino(lang, pre):
            "Probability and statistical inference applied to industrial engineering problems: random variables, discrete and continuous distributions, the Central Limit Theorem and goodness-of-fit tests (chi-square, Kolmogorov-Smirnov)."),
          COLAB["mpaep"], T(lang, "Distribuições de probabilidade de ampla aplicação", "Widely used probability distributions")),
         ("disciplina-tpo.png", T(lang, "Pesquisa Operacional 3", "Operations Research 3"),
-         T(lang, "Tópicos modernos de Pesquisa Operacional para produção e logística: programação linear inteira mista, otimização multiobjetivo, programação estocástica e heurísticas e meta-heurísticas, com implementação em Python e Gurobi/CPLEX.",
-           "Modern operations research topics for production and logistics: mixed-integer linear programming, multi-objective optimization, stochastic programming, heuristics and metaheuristics, implemented in Python with Gurobi/CPLEX."),
+         T(lang, "Tópicos modernos de Pesquisa Operacional para produção e logística: programação linear inteira mista, otimização multiobjetivo, programação estocástica e heurísticas e meta-heurísticas, com implementação em Python e nos solvers Gurobi e HiGHS.",
+           "Modern operations research topics for production and logistics: mixed-integer linear programming, multi-objective optimization, stochastic programming, heuristics and metaheuristics, implemented in Python with the Gurobi and HiGHS solvers."),
          COLAB["tpo"], T(lang, "Visualizando a busca em meta-heurísticas populacionais", "Visualizing search in population-based metaheuristics")),
         ("disciplina-tia.png", T(lang, "Tópicos em Inteligência Artificial", "Topics in Artificial Intelligence"),
          T(lang, "Aprendizado de máquina aplicado à Engenharia de Produção: análise exploratória de dados, aprendizado não supervisionado (agrupamento e redução de dimensionalidade), supervisionado (classificação e regressão) e por reforço, com processos de decisão de Markov e sua interface com a Pesquisa Operacional.",
