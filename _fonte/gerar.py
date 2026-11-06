@@ -111,12 +111,11 @@ ELI_LINKS = [
 
 
 def logos_band(lang, pre, lazy=True):
-    return f'''<section class="logos-band" aria-labelledby="logos-t"><div class="wrap">
-<img src="{pre}figuras/logos-horizontal.png" alt="LOGOS: Laboratório de Otimização em Gestão de Operações Sustentáveis" width="1600" height="579"{' loading="lazy"' if lazy else ""}>
+    return f'''<section class="logos-band" id="logos-t" aria-label="LOGOS"><div class="wrap">
+<img src="{pre}figuras/logo-logos.svg" alt="LOGOS: Laboratório de Otimização em Gestão de Operações Sustentáveis" width="560" height="247"{' loading="lazy"' if lazy else ""}>
 <div class="text"><p class="eyebrow">{T(lang, "Laboratório", "Lab")}</p>
-<h2 id="logos-t">LOGOS</h2>
 <p>{T(lang,
- "Formado por mim e pela Profa. Dra. Eli Angela Vitor Toso, ambos docentes do DEP-So/UFSCar Sorocaba e do PPGEPS, o Laboratório de Otimização em Gestão de Operações Sustentáveis reúne nossos orientandos de graduação e pós-graduação e desenvolve modelos matemáticos e algoritmos para problemas práticos de produção e logística.",
+ "Formado pela Profa. Dra. Eli Angela Vitor Toso e por mim, ambos docentes do DEP-So/UFSCar Sorocaba e do PPGEPS, o Laboratório de Otimização em Gestão de Operações Sustentáveis reúne nossos orientandos de graduação e pós-graduação e desenvolve modelos matemáticos e algoritmos para problemas práticos de produção e logística.",
  "Formed by Prof. Eli Angela Vitor Toso and me, both faculty members of the Department of Industrial Engineering (DEP-So) at UFSCar Sorocaba and of PPGEPS, the Laboratory of Optimization in Sustainable Operations Management (LOGOS) brings together our undergraduate and graduate students and develops mathematical models and algorithms for practical production and logistics problems.")}</p>
 <div style="display:grid;gap:.4rem"><p style="font-size:.88rem">{T(lang, "Profa. Eli Toso", "Prof. Eli Toso")}: {" · ".join(f'<a href="{u}" target="_blank" rel="noopener">{n}</a>' for n, u in ELI_LINKS)}</p>
 {email(lang, u=ELI_EMAIL_U, d=ELI_EMAIL_D)}</div>
@@ -130,11 +129,16 @@ def page_inicio(lang, pre):
     n_pubs = len(PUBS)
     n_conc = len(ORIENTACOES["concluidas"])
     n_and = len(ORIENTACOES["andamento"])
+    link = lambda u, t: f'<a href="{u}" target="_blank" rel="noopener">{t}</a>'
+    dep, ccgt, ufscar, campus = "https://www.depso.ufscar.br/pt-br", "https://www.ccgt.ufscar.br/pt-br", "https://www.ufscar.br/", "https://www.sorocaba.ufscar.br/"
+    cargo = T(lang,
+              f'Professor Assistente do {link(dep, "Departamento de Engenharia de Produção (DEP-So)")}, <span class="cargo-l2">do {link(ccgt, "Centro de Ciências em Gestão e Tecnologia (CCGT)")}, da {link(ufscar, "UFSCar")} {link(campus, "Campus Sorocaba")}</span>',
+              f'Assistant Professor in the {link(dep, "Department of Industrial Engineering (DEP-So)")}, <span class="cargo-l2">{link(ccgt, "Center for Sciences in Management and Technology (CCGT)")}, {link(ufscar, "UFSCar")} {link(campus, "Sorocaba Campus")}</span>')
     ids = "".join(f'<a href="{u}" target="_blank" rel="noopener">{E(n)}</a>' for n, u in LINKS)
     hero = f'''<section class="hero"><div class="wrap">
 <div class="hero-text">
 <p class="eyebrow">{T(lang, "Pesquisa Operacional · Engenharia de Produção", "Operations Research · Industrial Engineering")}</p>
-<h1>Mateus Pereira Martin<span>{T(lang, "Professor do Departamento de Engenharia de Produção da UFSCar, campus Sorocaba", "Assistant Professor of Industrial Engineering at the Federal University of São Carlos (UFSCar), Sorocaba campus")}</span></h1>
+<h1>Mateus Pereira Martin<span>{cargo}</span></h1>
 <p class="lead">{T(lang,
  "Desenvolvo modelos matemáticos e algoritmos para decisões de produção e logística: como cortar, empacotar, programar e transportar com menos desperdício e menos custo.",
  "I develop mathematical models and algorithms for production and logistics decisions: how to cut, pack, schedule and transport with less waste and lower cost.")}</p>
@@ -482,7 +486,7 @@ def render(key, lang):
 <body>
 <a class="skip" href="#conteudo">{T(lang, "Pular para o conteúdo", "Skip to content")}</a>
 <header class="site-header"><div class="wrap">
-<div class="brand"><a href="{FILE["pesquisa"][lang]}#logos-t" title="{T(lang, "LOGOS: Laboratório de Otimização em Gestão de Operações Sustentáveis", "LOGOS lab")}"><img src="{pre}figuras/logos-simbolo-192.png" alt="LOGOS" width="192" height="192"></a><a class="brand-text" href="{FILE["inicio"][lang]}"><strong>Mateus P. Martin</strong><span>UFSCar · Sorocaba</span></a></div>
+<div class="brand"><a href="{FILE["pesquisa"][lang]}#logos-t" title="{T(lang, "LOGOS: Laboratório de Otimização em Gestão de Operações Sustentáveis", "LOGOS lab")}"><img src="{pre}figuras/logo-logos-simbolo.svg" alt="LOGOS" width="240" height="240"></a><a class="brand-text" href="{FILE["inicio"][lang]}"><strong>Mateus P. Martin</strong><span>UFSCar · Sorocaba</span></a></div>
 <button type="button" class="menu-btn" aria-expanded="false" aria-controls="nav">Menu</button>
 <nav class="nav" id="nav" aria-label="{T(lang, "Principal", "Main")}">{nav}</nav>
 <a class="lang" href="{other_href}" hreflang="{T(lang, "en", "pt-BR")}" lang="{T(lang, "en", "pt-BR")}">{T(lang, "EN", "PT")}</a>
@@ -496,10 +500,10 @@ def render(key, lang):
 <span class="muted" style="font-size:.9rem">{T(lang, "Departamento de Engenharia de Produção, UFSCar · Sorocaba, SP", "Department of Industrial Engineering, UFSCar · Sorocaba, SP, Brazil")}</span>
 {email(lang)}</div>
 <div class="inst">
-<a href="https://www.ufscar.br/" target="_blank" rel="noopener"><img src="{pre}figuras/logo-ufscar.png" alt="UFSCar" width="247" height="180" loading="lazy"></a>
-<a href="https://www.ccgt.ufscar.br/pt-br" target="_blank" rel="noopener"><img src="{pre}figuras/logo-ccgt.png" alt="CCGT/UFSCar" width="200" height="75" loading="lazy"></a>
+<a href="https://www.ufscar.br/" target="_blank" rel="noopener"><img src="{pre}figuras/logo-ufscar.svg" alt="UFSCar" class="inst-sigla" width="189" height="38" loading="lazy"></a>
+<a href="https://www.ccgt.ufscar.br/pt-br" target="_blank" rel="noopener"><img src="{pre}figuras/logo-ccgt.svg" alt="CCGT/UFSCar" class="inst-ccgt" width="291" height="95" loading="lazy"></a>
 <a href="https://www.ppgeps.ufscar.br/pt-br/" target="_blank" rel="noopener"><img src="{pre}figuras/logo-ppgeps.png" alt="PPGEPS/UFSCar" width="200" height="162" loading="lazy"></a>
-<a href="{FILE["pesquisa"][lang]}"><img src="{pre}figuras/logos-simbolo-claro.png" alt="LOGOS" title="LOGOS" width="1600" height="1600" loading="lazy"></a>
+<a href="{FILE["pesquisa"][lang]}"><img src="{pre}figuras/logo-logos/svg/transp-claro_selo.svg" alt="LOGOS" title="LOGOS" class="inst-logos" width="560" height="168" loading="lazy"></a>
 </div></div>
 <p class="footer-note">{T(lang, "Site acadêmico e pessoal. As informações são de responsabilidade do autor e não representam posição oficial da Universidade Federal de São Carlos.",
        "Personal academic website. Its content is the author's responsibility and does not represent an official position of the Federal University of São Carlos.")}
@@ -544,7 +548,7 @@ def pagina_404():
 </head>
 <body>
 <header class="site-header"><div class="wrap">
-<div class="brand"><a href="{BASE_URL}pesquisa.html#logos-t" title="LOGOS"><img src="{BASE_URL}figuras/logos-simbolo-192.png" alt="LOGOS" width="192" height="192"></a><a class="brand-text" href="{BASE_URL}"><strong>Mateus P. Martin</strong><span>UFSCar · Sorocaba</span></a></div>
+<div class="brand"><a href="{BASE_URL}pesquisa.html#logos-t" title="LOGOS"><img src="{BASE_URL}figuras/logo-logos-simbolo.svg" alt="LOGOS" width="240" height="240"></a><a class="brand-text" href="{BASE_URL}"><strong>Mateus P. Martin</strong><span>UFSCar · Sorocaba</span></a></div>
 </div></header>
 <main><section class="section"><div class="wrap" style="display:grid;gap:1rem;max-width:40rem;margin-inline:0">
 <p class="eyebrow">Erro 404</p>

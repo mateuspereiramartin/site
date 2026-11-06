@@ -121,7 +121,8 @@ main { display: block; }
 .hero .wrap { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: clamp(2rem, 5vw, 4rem); align-items: center; }
 .hero-text { display: grid; gap: 1.25rem; min-width: 0; }
 .hero-text .lead { max-width: 75ch; }
-.hero-text h1 span { display: block; font-size: 1.1rem; font-weight: 400; color: var(--muted); margin-top: .4rem; font-family: var(--font-body); letter-spacing: 0; }
+.hero-text h1 span { display: block; font-size: 1.1rem; font-weight: 400; color: var(--muted); margin-top: .4rem; font-family: var(--font-body); letter-spacing: 0; text-wrap: pretty; }
+.hero-text h1 span.cargo-l2 { display: inline-block; margin-top: 0; }
 .ids { display: flex; flex-wrap: wrap; gap: 0.5rem; }
 .ids a {
   font-size: 0.85rem; font-weight: 500; text-decoration: none; color: var(--ink);
@@ -290,6 +291,9 @@ main { display: block; }
 .inst { display: flex; flex-wrap: wrap; gap: 1.25rem; align-items: center; }
 .inst a { display: block; }
 .inst img { height: 2.4rem; width: auto; }
+.inst img.inst-sigla { height: 0.95rem; }
+.inst img.inst-ccgt { height: 1.85rem; }
+.inst img.inst-logos { height: 1.7rem; max-width: none; margin: -0.3rem; }
 .site-footer p { font-size: 0.85rem; color: var(--muted); max-width: 70ch; }
 .site-footer .contact { display: grid; gap: 0.3rem; }
 .site-footer .footer-note { max-width: none; text-align: center; padding-top: 1.25rem; border-top: 1px solid var(--line); }

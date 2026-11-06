@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240">
+  <title>LOGOS (símbolo)</title>
+  <g id="simbolo">
+    <circle id="disco" cx="120" cy="120" r="116" fill="#0F7A35"/>
+    <g transform="translate(62.52,173.92) rotate(-45) scale(0.84)">
+      <path id="caule" d="M0,0 Q-16,2 -30,12" fill="none" stroke="#FF8300" stroke-width="11" stroke-linecap="round"/>
+      <path id="folha" d="M0,0 C45,-70 140,-74 210,0 C140,74 45,70 0,0 Z" fill="#FFFFFF"/>
+      <g id="nervuras" stroke="#0F7A35" stroke-width="8" stroke-linecap="round"><line x1="53.33" y1="0" x2="89.33" y2="-32.25"/><line x1="53.33" y1="0" x2="89.33" y2="32.25"/><line x1="106.67" y1="0" x2="142.67" y2="-27.39"/><line x1="106.67" y1="0" x2="142.67" y2="27.39"/></g>
+      <g id="nos-laterais" fill="#0F7A35"><circle cx="89.33" cy="-32.25" r="8.5"/><circle cx="89.33" cy="32.25" r="8.5"/><circle cx="142.67" cy="-27.39" r="8.5"/><circle cx="142.67" cy="27.39" r="8.5"/></g>
+      <line id="rota-otima" x1="0" y1="0" x2="182" y2="0" stroke="#FF8300" stroke-width="11" stroke-linecap="round"/>
+      <g id="nos-rota" fill="#FF8300" stroke="#FFFFFF" stroke-width="4"><circle cx="53.33" cy="0" r="12"/><circle cx="106.67" cy="0" r="12"/></g>
+      <circle id="no-final" cx="182" cy="0" r="12" fill="#FF8300" stroke="#FFFFFF" stroke-width="4"/>
+    </g>
+  </g>
+</svg>
