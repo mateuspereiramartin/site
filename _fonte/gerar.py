@@ -103,7 +103,7 @@ def page_head(lang, eyebrow, title, lead):
 
 
 ELI_LINKS = [
-    ("Lattes", "https://lattes.cnpq.br/6663631731115739"),
+    ("Lattes", "https://busca-cv-lattes.cnpq.br/curriculo/6663631731115739"),
     ("ORCID", "https://orcid.org/0000-0001-7531-0300"),
     ("Scopus", "https://www.scopus.com/authid/detail.uri?authorId=26026490900"),
     ("ResearchGate", "https://www.researchgate.net/profile/Eli_Angela_Toso"),

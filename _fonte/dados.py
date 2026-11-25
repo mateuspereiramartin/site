@@ -15,7 +15,7 @@ ATUALIZADO = {"pt": f"{_MESES_PT[_hoje.month - 1]} de {_hoje.year}",
               "en": f"{_MESES_EN[_hoje.month - 1]} {_hoje.year}"}
 
 LINKS = [
-    ("Lattes", "https://lattes.cnpq.br/9814295914139504"),
+    ("Lattes", "https://busca-cv-lattes.cnpq.br/curriculo/9814295914139504"),
     ("ORCID", "https://orcid.org/0000-0002-6722-7571"),
     ("Google Scholar", "https://scholar.google.com.br/citations?user=QnhlnG8AAAAJ&hl"),
     ("Scopus", "https://www.scopus.com/authid/detail.uri?authorId=57204688163"),
